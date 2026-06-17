@@ -4,4 +4,4 @@ Disallow: /admin.html
 Disallow: /admin.js
 Disallow: /site-data.json
 
-Sitemap: https://melikerke.github.io/hagiasophiaticket/sitemap.xml
+Sitemap: https://hagiasophiaticket.com/sitemap.xml
