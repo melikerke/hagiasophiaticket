@@ -1,0 +1,100 @@
+{
+  "site": {
+    "brand": "Hagia Sophia Ticket",
+    "tagline": "Visitor Guide",
+    "baseUrl": "https://melikerke.github.io/hagiasophiaticket/",
+    "language": "en",
+    "currency": "EUR"
+  },
+  "ticket": {
+    "title": "Hagia Sophia Ticket & Visitor Guide",
+    "subtitle": "Skip the ticket lines, plan your visit, and discover what most first-time visitors miss inside Hagia Sophia.",
+    "price": "28.00",
+    "oldPrice": "34.90",
+    "bookingUrl": "https://gyg.me/9TxDoMwH",
+    "heroImage": "assets/hagia-sophia-front-side.webp",
+    "badges": [
+      "Instant Confirmation",
+      "Mobile Ticket",
+      "Visitor Access Included",
+      "Trusted by Travelers"
+    ]
+  },
+  "seo": {
+    "metaTitle": "Hagia Sophia Ticket & Visitor Guide | Book Online",
+    "metaDescription": "Book your Hagia Sophia ticket online with instant confirmation, mobile ticket access, visitor tips, dress code, best time to visit and nearby attractions.",
+    "ogImage": "assets/hagia-sophia-front-side.webp"
+  },
+  "guides": [
+    {
+      "file": "guides/hagia-sophia-dress-code.html",
+      "title": "Hagia Sophia Dress Code (2026 Guide)",
+      "category": "Dress Code",
+      "description": "What should you wear when visiting Hagia Sophia? Complete dress code guide for men, women, and children.",
+      "status": "Published"
+    },
+    {
+      "file": "guides/best-time-to-visit-hagia-sophia.html",
+      "title": "Best Time To Visit Hagia Sophia",
+      "category": "Planning Guide",
+      "description": "Discover the best time to visit Hagia Sophia with local advice on crowds, mornings, afternoons, Fridays, and busy travel periods.",
+      "status": "Published"
+    },
+    {
+      "file": "guides/hagia-sophia-vs-blue-mosque.html",
+      "title": "Hagia Sophia vs Blue Mosque: Which Should You Visit?",
+      "category": "Comparison",
+      "description": "Compare Hagia Sophia and the Blue Mosque, including highlights, timing, atmosphere, photos, and the best order to visit.",
+      "status": "Published"
+    },
+    {
+      "file": "guides/how-long-does-hagia-sophia-take.html",
+      "title": "How Long Does Hagia Sophia Take?",
+      "category": "Time Needed",
+      "description": "Learn how much time you need for Hagia Sophia, from a quick visit to a detailed visit with the upper gallery.",
+      "status": "Published"
+    },
+    {
+      "file": "guides/can-you-visit-hagia-sophia-for-free.html",
+      "title": "Can You Visit Hagia Sophia For Free?",
+      "category": "Tickets",
+      "description": "Understand whether Hagia Sophia is free to visit, why rules can be confusing, and which visitor areas may require tickets.",
+      "status": "Published"
+    },
+    {
+      "file": "guides/hagia-sophia-upper-gallery.html",
+      "title": "Hagia Sophia Upper Gallery Guide",
+      "category": "Upper Gallery",
+      "description": "Is the Hagia Sophia Upper Gallery worth it? Learn what you see, best photo spots, and local advice before your visit.",
+      "status": "Published"
+    },
+    {
+      "file": "guides/hagia-sophia-history.html",
+      "title": "Hagia Sophia History Explained Simply",
+      "category": "History",
+      "description": "A simple guide to Hagia Sophia's history from Byzantine cathedral to Ottoman mosque, museum period, and today.",
+      "status": "Published"
+    },
+    {
+      "file": "guides/hagia-sophia-with-kids.html",
+      "title": "Visiting Hagia Sophia With Kids",
+      "category": "Family Guide",
+      "description": "A family-friendly guide to visiting Hagia Sophia with children, including timing, comfort tips, and nearby attractions.",
+      "status": "Published"
+    },
+    {
+      "file": "guides/hagia-sophia-photography-guide.html",
+      "title": "Hagia Sophia Photography Guide",
+      "category": "Photography",
+      "description": "Find the best photography spots in and around Hagia Sophia, including exterior views, upper gallery angles, and best light.",
+      "status": "Published"
+    },
+    {
+      "file": "guides/things-to-see-inside-hagia-sophia.html",
+      "title": "Top Things To See Inside Hagia Sophia",
+      "category": "Highlights",
+      "description": "A focused guide to the top things to see inside Hagia Sophia, from the dome and mosaics to Ottoman calligraphy and the Upper Gallery.",
+      "status": "Published"
+    }
+  ]
+}

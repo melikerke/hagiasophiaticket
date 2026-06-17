@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Admin Panel | HagiaSophiaTicket</title><meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="style.css"><!-- SEO START -->
+<link rel="canonical" href="https://melikerke.github.io/hagiasophiaticket/admin.html">
+<meta property="og:site_name" content="HagiaSophiaTicket">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Admin Panel | HagiaSophiaTicket">
+<meta property="og:description" content="Private static admin panel for HagiaSophiaTicket.">
+<meta property="og:url" content="https://melikerke.github.io/hagiasophiaticket/admin.html">
+<meta property="og:image" content="https://melikerke.github.io/hagiasophiaticket/hagia-sophia-guide.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Admin Panel | HagiaSophiaTicket">
+<meta name="twitter:description" content="Private static admin panel for HagiaSophiaTicket.">
+<meta name="twitter:image" content="https://melikerke.github.io/hagiasophiaticket/hagia-sophia-guide.webp">
+<meta name="theme-color" content="#636B2F">
+
+<!-- SEO END -->
+</head><body class="admin-body">
+<main class="admin-shell">
+ <aside class="admin-sidebar">
+  <a class="logo admin-logo" href="index.html"><span class="logo-mark">&#9820;</span><span>Hagia Sophia<br>Ticket<small>Admin Panel</small></span></a>
+  <nav class="admin-menu" aria-label="Admin navigation">
+   <button class="active" data-panel="overview">Overview</button>
+   <button data-panel="ticket">Ticket</button>
+   <button data-panel="guides">Guides</button>
+   <button data-panel="seo">SEO</button>
+   <button data-panel="export">Export</button>
+  </nav>
+  <div class="admin-note">Static admin for GitHub Pages. Changes save in this browser until you export.</div>
+ </aside>
+
+ <section class="admin-main">
+  <div class="admin-top">
+   <div><span class="eyebrow">&#10022; HagiaSophiaTicket</span><h1>Admin Panel</h1></div>
+   <div class="admin-actions"><button class="ghost" id="importBtn">Import JSON</button><button class="btn" id="saveBtn">Save Draft</button></div>
+   <input id="importFile" type="file" accept="application/json" hidden>
+  </div>
+
+  <section class="admin-panel active" id="panel-overview">
+   <div class="admin-stats">
+    <div><span>Published Guides</span><b id="statGuides">10</b></div>
+    <div><span>Ticket Price</span><b id="statPrice">EUR 34.90</b></div>
+    <div><span>SEO Status</span><b>Ready</b></div>
+    <div><span>Last Draft</span><b id="statSaved">Not saved</b></div>
+   </div>
+   <div class="admin-grid">
+    <article class="admin-card"><h2>Launch Checklist</h2><label><input type="checkbox" checked> sitemap.xml</label><label><input type="checkbox" checked> robots.txt</label><label><input type="checkbox" checked> Canonical tags</label><label><input type="checkbox" checked> Open Graph images</label><label><input type="checkbox" checked> FAQ / Article schema</label><label><input type="checkbox" checked> 404 page</label></article>
+    <article class="admin-card"><h2>Quick Links</h2><a class="admin-link" href="index.html" target="_blank">Open homepage</a><a class="admin-link" href="guides.html" target="_blank">Open guides</a><a class="admin-link" href="sitemap.xml" target="_blank">Open sitemap</a><a class="admin-link" href="robots.txt" target="_blank">Open robots.txt</a></article>
+   </div>
+  </section>
+
+  <section class="admin-panel" id="panel-ticket">
+   <div class="admin-card"><h2>Ticket Page Settings</h2><div class="form-grid">
+    <label>Title<input data-path="ticket.title"></label>
+    <label>Price<input data-path="ticket.price"></label>
+    <label>Old Price<input data-path="ticket.oldPrice"></label>
+    <label>Hero Image<input data-path="ticket.heroImage"></label>
+    <label class="wide">Subtitle<textarea data-path="ticket.subtitle" rows="3"></textarea></label>
+    <label class="wide">Booking URL<input data-path="ticket.bookingUrl"></label>
+   </div></div>
+   <div class="admin-card"><h2>Trust Badges</h2><div id="badgeList" class="badge-editor"></div><button class="ghost" id="addBadge">Add Badge</button></div>
+  </section>
+
+  <section class="admin-panel" id="panel-guides">
+   <div class="admin-card"><div class="admin-card-head"><h2>Guide Pages</h2><button class="ghost" id="addGuide">Add Guide</button></div><div id="guideList" class="guide-editor"></div></div>
+  </section>
+
+  <section class="admin-panel" id="panel-seo">
+   <div class="admin-card"><h2>Main SEO</h2><div class="form-grid">
+    <label class="wide">Meta Title<input data-path="seo.metaTitle" maxlength="70"></label>
+    <label class="wide">Meta Description<textarea data-path="seo.metaDescription" rows="3" maxlength="170"></textarea></label>
+    <label class="wide">Open Graph Image<input data-path="seo.ogImage"></label>
+    <label>Base URL<input data-path="site.baseUrl"></label>
+    <label>Language<input data-path="site.language"></label>
+   </div><div class="seo-preview"><span>Search Preview</span><h3 id="seoTitle"></h3><p id="seoUrl"></p><p id="seoDesc"></p></div></div>
+  </section>
+
+  <section class="admin-panel" id="panel-export">
+   <div class="admin-card"><h2>Export Draft</h2><p>Download the current admin draft as <b>site-data.json</b>. On GitHub Pages this panel cannot write files by itself, so export is the handoff point.</p><div class="admin-actions inline"><button class="btn" id="downloadJson">Download JSON</button><button class="ghost" id="resetDraft">Reset Draft</button></div><textarea id="jsonOutput" rows="18" readonly></textarea></div>
+  </section>
+ </section>
+</main>
+<script src="admin.js"></script>
+</body></html>
