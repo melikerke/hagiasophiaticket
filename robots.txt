@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://melikerke.github.io/hagiasophiaticket/sitemap.xml
