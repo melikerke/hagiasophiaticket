@@ -95,6 +95,85 @@
       "category": "Highlights",
       "description": "A focused guide to the top things to see inside Hagia Sophia, from the dome and mosaics to Ottoman calligraphy and the Upper Gallery.",
       "status": "Published"
+    },
+    {
+      "file": "guides/is-hagia-sophia-a-church-or-mosque.html",
+      "title": "Is Hagia Sophia a Church or a Mosque? Complete Guide",
+      "category": "History",
+      "description": "Discover whether Hagia Sophia is a church or a mosque, learn its fascinating history, and understand why it remains one of the world's most unique landmarks.",
+      "status": "Published"
+    },
+    {
+      "file": "guides/hagia-sophia-interior-guide.html",
+      "title": "Hagia Sophia Interior Guide: What To See Inside",
+      "category": "Interior",
+      "description": "Discover what makes the interior of Hagia Sophia so famous. Explore the dome, mosaics, marble columns, calligraphy panels, and the most impressive features inside.",
+      "status": "Published"
+    },
+    {
+      "file": "guides/hagia-sophia-mosaics.html",
+      "title": "Hagia Sophia Mosaics Explained: History, Meaning & Visitor Guide",
+      "category": "Mosaics",
+      "description": "Discover the famous mosaics inside Hagia Sophia, learn their history, meaning, and why they remain among the most important works of Byzantine art.",
+      "status": "Published"
+    },
+    {
+      "file": "guides/hagia-sophia-architecture.html",
+      "title": "Hagia Sophia Architecture: Why The Dome Changed History",
+      "category": "Architecture",
+      "description": "Discover why Hagia Sophia's architecture is considered one of the greatest achievements in history. Learn about its dome, designers, engineering innovations, and lasting influence.",
+      "status": "Published"
+    },
+    {
+      "file": "guides/hagia-sophia-opening-hours.html",
+      "title": "Hagia Sophia Opening Hours 2026: Best Time To Visit & Prayer Times",
+      "category": "Opening Hours",
+      "description": "Planning a visit to Hagia Sophia? Discover current opening hours, prayer times, the best time to visit, how long to spend there, and tips to avoid crowds.",
+      "status": "Published"
+    }
+  ],
+  "combos": [
+    {
+      "title": "Hagia Sophia Skip-the-Line Ticket & Blue Mosque Audio Guide",
+      "badge": "Best value",
+      "price": "30.49",
+      "url": "https://gyg.me/Y5QliR06",
+      "image": "assets/hagia-sophia-blue-mosque-aerial.jpg",
+      "description": "Flexible Hagia Sophia entry with audio guide, plus a Blue Mosque audio guide for the landmark just across Sultanahmet Square.",
+      "inclusions": [
+        "Hagia Sophia entry ticket",
+        "Blue Mosque audio guide",
+        "Enter anytime during opening hours"
+      ],
+      "status": "Published"
+    },
+    {
+      "title": "Hagia Sophia Entry Ticket & Basilica Cistern Guided Tour",
+      "badge": "Popular pair",
+      "price": "85.00",
+      "url": "https://gyg.me/aumuVrOk",
+      "image": "assets/hagia-sophia-interior-main.jpg",
+      "description": "A strong first-time Istanbul route: Hagia Sophia above ground, then the atmospheric Basilica Cistern beneath the Old City.",
+      "inclusions": [
+        "Skip-the-line Hagia Sophia ticket",
+        "Skip-the-line Basilica Cistern ticket",
+        "Audio guide in 13 languages"
+      ],
+      "status": "Published"
+    },
+    {
+      "title": "Basilica Cistern, Topkapi Palace & Hagia Sophia Combo Tickets",
+      "badge": "Full old city day",
+      "price": "147.00",
+      "url": "https://gyg.me/fI4B3R9A",
+      "image": "assets/hagia-sophia-and-topkapi-palace.webp",
+      "description": "The richest Old City option for travelers who want the three big historic stops arranged before arrival.",
+      "inclusions": [
+        "Hagia Sophia visitor area ticket",
+        "Basilica Cistern skip-the-line ticket",
+        "Topkapi Palace skip-the-line ticket with host"
+      ],
+      "status": "Published"
     }
   ]
 }

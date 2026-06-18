@@ -48,6 +48,7 @@
   function renderStats() {
     $("#statGuides").textContent = state.guides.filter((guide) => guide.status === "Published").length;
     $("#statPrice").textContent = `${state.site.currency} ${state.ticket.price}`;
+    $("#statCombos").textContent = (state.combos || []).filter((combo) => combo.status !== "Draft").length;
     $("#statSaved").textContent = localStorage.getItem(storageKey + ".time") || "Not saved";
   }
 
@@ -111,6 +112,48 @@
     });
   }
 
+  function renderCombos() {
+    const list = $("#comboList");
+    if (!list) return;
+    list.innerHTML = "";
+    state.combos = state.combos || [];
+    state.combos.forEach((combo, index) => {
+      combo.inclusions = combo.inclusions || [];
+      const item = document.createElement("article");
+      item.className = "guide-admin-card combo-admin-card";
+      item.innerHTML = `<div class="guide-admin-head"><span>${escapeHtml(combo.badge || "Combo")}</span><button type="button">Remove</button></div>
+      <div class="form-grid">
+        <label class="wide">Title<input data-field="title" value="${escapeAttr(combo.title)}"></label>
+        <label>Badge<input data-field="badge" value="${escapeAttr(combo.badge)}"></label>
+        <label>Price<input data-field="price" value="${escapeAttr(combo.price)}"></label>
+        <label class="wide">Affiliate URL<input data-field="url" value="${escapeAttr(combo.url)}"></label>
+        <label class="wide">Image<input data-field="image" value="${escapeAttr(combo.image)}"></label>
+        <label class="wide">Description<textarea data-field="description" rows="3">${escapeHtml(combo.description)}</textarea></label>
+        <label class="wide">Inclusions, one per line<textarea data-field="inclusions" rows="4">${escapeHtml(combo.inclusions.join("\n"))}</textarea></label>
+        <label>Status<select data-field="status"><option>Published</option><option>Draft</option></select></label>
+      </div>`;
+      $("[data-field='status']", item).value = combo.status || "Published";
+      $$("[data-field]", item).forEach((field) => {
+        field.oninput = field.onchange = (event) => {
+          const key = event.target.dataset.field;
+          if (key === "inclusions") {
+            combo.inclusions = event.target.value.split("\n").map((line) => line.trim()).filter(Boolean);
+          } else {
+            combo[key] = event.target.value;
+          }
+          if (key === "badge") $(".guide-admin-head span", item).textContent = event.target.value || "Combo";
+          renderStats();
+          renderJson();
+        };
+      });
+      $("button", item).onclick = () => {
+        state.combos.splice(index, 1);
+        render();
+      };
+      list.appendChild(item);
+    });
+  }
+
   function renderJson() {
     $("#jsonOutput").value = JSON.stringify(state, null, 2);
   }
@@ -120,6 +163,7 @@
     renderStats();
     renderSeoPreview();
     renderBadges();
+    renderCombos();
     renderGuides();
     renderJson();
   }
@@ -142,6 +186,12 @@
     URL.revokeObjectURL(url);
   }
 
+  async function copyJson() {
+    await navigator.clipboard.writeText(JSON.stringify(state, null, 2));
+    $("#copyJson").textContent = "Copied";
+    setTimeout(() => $("#copyJson").textContent = "Copy JSON", 1400);
+  }
+
   $$(".admin-menu button").forEach((button) => {
     button.onclick = () => {
       $$(".admin-menu button").forEach((item) => item.classList.remove("active"));
@@ -161,6 +211,21 @@
     state.guides.unshift({ file: "guides/new-guide.html", title: "New Hagia Sophia Guide", category: "Draft", description: "Short guide description.", status: "Draft" });
     render();
   };
+  $("#addCombo").onclick = () => {
+    state.combos = state.combos || [];
+    state.combos.unshift({
+      title: "New Hagia Sophia Combo Ticket",
+      badge: "New offer",
+      price: "0.00",
+      url: "https://gyg.me/",
+      image: "assets/hagia-sophia-guide.webp",
+      description: "Short combo description.",
+      inclusions: ["Hagia Sophia ticket", "Audio guide"],
+      status: "Draft"
+    });
+    render();
+  };
+  $("#copyJson").onclick = copyJson;
   $("#resetDraft").onclick = async () => {
     localStorage.removeItem(storageKey);
     localStorage.removeItem(storageKey + ".time");
