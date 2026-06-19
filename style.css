@@ -188,6 +188,7 @@ section{padding:42px 0}
 .fact-tile{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 8px 20px rgba(34,48,60,.05)}
 .fact-tile span{display:block;color:var(--muted);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
 .fact-tile b{font-size:15px;color:var(--ink)}
+.source-note{margin:14px 0 0;color:var(--muted);font-size:12.5px}
 .check-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
 .check-list div{display:flex;gap:8px;align-items:center;background:var(--soft);border:1px solid var(--line);border-radius:13px;padding:11px 13px;font-weight:700;color:var(--deep);font-size:14px}
 .check-list span{color:var(--accent);font-weight:900}
