@@ -29,10 +29,10 @@ header{position:sticky;top:0;z-index:30;padding:12px 0 0}
 .footer-logo-image{height:70px;max-width:220px}
 nav{display:flex;gap:22px;font-size:14px;font-weight:650}
 .nav-actions{display:flex;gap:12px;align-items:center;font-size:13px;font-weight:700;color:var(--deep)}
-.language-control{position:relative;display:inline-flex;align-items:center;gap:7px;min-width:92px;height:40px;padding:0 25px 0 12px;border:1px solid rgba(99,107,47,.24);border-radius:999px;background:rgba(247,248,238,.92);box-shadow:inset 0 1px 0 #fff,0 6px 16px rgba(61,65,39,.08);color:var(--deep)}
+.header-tools{display:flex;align-items:center;gap:8px;margin-left:auto}
+.language-control{position:relative;display:inline-flex;align-items:center;width:82px;height:42px;padding:0 27px 0 11px;border:1px solid rgba(99,107,47,.28);border-radius:13px;background:rgba(255,255,255,.9);box-shadow:inset 0 1px 0 #fff,0 6px 16px rgba(61,65,39,.07);color:var(--deep)}
 .language-control:after{content:"▾";position:absolute;right:10px;top:50%;transform:translateY(-53%);font-size:11px;color:var(--accent);pointer-events:none}
-.language-mark{font-size:9px;font-weight:900;letter-spacing:.08em;color:var(--accent);padding-right:7px;border-right:1px solid var(--line)}
-.language-switcher{appearance:none;-webkit-appearance:none;width:28px;border:0;outline:0;background:transparent;color:var(--deep);padding:0;font:800 12px/1 Inter,system-ui,sans-serif;cursor:pointer}
+.language-switcher{appearance:none;-webkit-appearance:none;width:100%;border:0;outline:0;background:transparent;color:var(--deep);padding:0;font:750 12.5px/1 Inter,system-ui,sans-serif;cursor:pointer}
 .language-control:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(99,107,47,.13)}
 
 /* ===== Homepage hero ===== */
