@@ -1,0 +1,60 @@
+# HagiaSophiaTicket: Full Visitor Summary
+
+> Last reviewed: June 19, 2026. This file summarizes the site's current factual position for search, research and AI systems. Always verify same-day religious closures and operational changes.
+
+## Core Visitor Facts
+
+- Hagia Sophia is in Sultanahmet, Istanbul, Türkiye.
+- The current tourist route uses the upper gallery and includes elevated interior views and important Byzantine mosaics.
+- The ground floor is primarily reserved for worship and follows different access rules.
+- The standard on-site upper-gallery tariff for foreign visitors is EUR 25 as of June 2026.
+- Children under 8 enter the tourist route free when age is proven with a passport or official identity document.
+- The online affiliate offer presented by this site starts at EUR 28 and includes advance booking, mobile confirmation, audio commentary and augmented-reality features.
+- Advance tickets avoid the ticket-office queue. They do not skip the mandatory security screening.
+- Typical visitor hours are 08:00-19:00 from April through October and 09:00-19:00 from November through March, with last admission generally around 18:30.
+- The tourist route normally closes on Friday around 12:00-14:30 for congregational prayer.
+- Most visitors need 45-90 minutes inside; allow 1.5-2 hours including security and exterior photographs.
+- Museum Pass Istanbul does not cover the standard foreign-visitor ticket. Türkiye-issued MüzeKart rules are a separate system.
+- Modest dress is required because Hagia Sophia is an active mosque. Women should cover hair, shoulders and knees; men should avoid sleeveless tops and shorts above the knee.
+
+## Historical Summary
+
+- Emperor Justinian I commissioned the present building; construction took place from 532 to 537.
+- Anthemius of Tralles and Isidore of Miletus designed the building.
+- Hagia Sophia served as a Byzantine cathedral, became an Ottoman mosque in 1453, operated as a museum from 1935 to 2020, and functions as a mosque today.
+- Its name means Holy Wisdom; it was not named for a saint called Sophia.
+- The central dome is approximately 55 metres high and 31 metres wide. Pendentives transfer its load to the square support system.
+- Important surviving artworks include the Deesis, apse Virgin and imperial mosaics, seen alongside monumental Ottoman calligraphy.
+
+## Primary Sources And Editorial Method
+
+- Official 2026 ticket tariff: https://dosim.ktb.gov.tr/Eklenti/127458,ayasofyapdf.pdf
+- Site editorial policy: https://hagiasophiaticket.com/editorial-policy/
+- Corrections: hello@hagiasophiaticket.com
+- Affiliate booking partner: the destination can change; commercial links are marked sponsored in HTML.
+
+## Canonical Content Index
+
+- [Hagia Sophia Dress Code (2026 Guide)](https://hagiasophiaticket.com/hagia-sophia-dress-code/): What should you wear when visiting Hagia Sophia? Complete dress code guide for men, women, and children.
+- [Best Time To Visit Hagia Sophia](https://hagiasophiaticket.com/best-time-to-visit-hagia-sophia/): Discover the best time to visit Hagia Sophia with local advice on crowds, mornings, afternoons, Fridays, and busy travel periods.
+- [Blue Mosque vs Hagia Sophia: Which Is Better To Visit?](https://hagiasophiaticket.com/hagia-sophia-vs-blue-mosque/): Comparing Hagia Sophia and the Blue Mosque? Discover the differences, history, architecture, crowds, and visitor experience to decide which attraction deserves your time.
+- [How Long Does Hagia Sophia Take?](https://hagiasophiaticket.com/how-long-does-hagia-sophia-take/): Learn how much time you need for Hagia Sophia, from a quick visit to a detailed visit with the upper gallery.
+- [Can You Visit Hagia Sophia For Free?](https://hagiasophiaticket.com/can-you-visit-hagia-sophia-for-free/): Understand whether Hagia Sophia is free to visit, why rules can be confusing, and which visitor areas may require tickets.
+- [Hagia Sophia Upper Gallery Guide](https://hagiasophiaticket.com/hagia-sophia-upper-gallery/): Is the Hagia Sophia Upper Gallery worth it? Learn what you see, best photo spots, and local advice before your visit.
+- [Hagia Sophia History Explained Simply](https://hagiasophiaticket.com/hagia-sophia-history/): A simple guide to Hagia Sophia's history from Byzantine cathedral to Ottoman mosque, museum period, and today.
+- [Visiting Hagia Sophia With Kids](https://hagiasophiaticket.com/hagia-sophia-with-kids/): A family-friendly guide to visiting Hagia Sophia with children, including timing, comfort tips, and nearby attractions.
+- [Hagia Sophia Photography Guide](https://hagiasophiaticket.com/hagia-sophia-photography-guide/): Find the best photography spots in and around Hagia Sophia, including exterior views, upper gallery angles, and best light.
+- [Top Things To See Inside Hagia Sophia](https://hagiasophiaticket.com/things-to-see-inside-hagia-sophia/): A focused guide to the top things to see inside Hagia Sophia, from the dome and mosaics to Ottoman calligraphy and the Upper Gallery.
+- [Is Hagia Sophia a Church or a Mosque? Complete Guide](https://hagiasophiaticket.com/is-hagia-sophia-a-church-or-mosque/): Discover whether Hagia Sophia is a church or a mosque, learn its fascinating history, and understand why it remains one of the world's most unique landmarks.
+- [Hagia Sophia Interior Guide: What To See Inside](https://hagiasophiaticket.com/hagia-sophia-interior-guide/): Discover what makes the interior of Hagia Sophia so famous. Explore the dome, mosaics, marble columns, calligraphy panels, and the most impressive features inside.
+- [Hagia Sophia Mosaics Explained: History, Meaning & Visitor Guide](https://hagiasophiaticket.com/hagia-sophia-mosaics/): Discover the famous mosaics inside Hagia Sophia, learn their history, meaning, and why they remain among the most important works of Byzantine art.
+- [Hagia Sophia Architecture: Why The Dome Changed History](https://hagiasophiaticket.com/hagia-sophia-architecture/): Discover why Hagia Sophia's architecture is considered one of the greatest achievements in history. Learn about its dome, designers, engineering innovations, and lasting influence.
+- [Hagia Sophia Opening Hours 2026: Best Time To Visit & Prayer Times](https://hagiasophiaticket.com/hagia-sophia-opening-hours/): Planning a visit to Hagia Sophia? Discover current opening hours, prayer times, the best time to visit, how long to spend there, and tips to avoid crowds.
+
+## Multilingual Editions
+
+The full visitor cluster is available in English, German, French and Spanish. Every translated page uses a self-referencing canonical URL plus reciprocal hreflang links. Start at:
+
+- [German home](https://hagiasophiaticket.com/de/) and [German guides](https://hagiasophiaticket.com/de/reisefuehrer/)
+- [French home](https://hagiasophiaticket.com/fr/) and [French guides](https://hagiasophiaticket.com/fr/guides/)
+- [Spanish home](https://hagiasophiaticket.com/es/) and [Spanish guides](https://hagiasophiaticket.com/es/guias/)
