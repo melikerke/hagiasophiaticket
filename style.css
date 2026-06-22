@@ -428,3 +428,17 @@ footer h4{margin:0 0 12px;font-size:15px}footer p,footer a{display:block;color:#
  .admin-stats,.admin-grid,.form-grid,.form-grid.compact{grid-template-columns:1fr}
  .form-grid .wide{grid-column:auto}
 }
+
+
+
+
+
+
+
+/* GROWTH UI 2026 */
+.cookie-consent{position:fixed;z-index:9999;left:20px;right:20px;bottom:20px;max-width:1040px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 22px;background:#fff;border:1px solid #d4de95;box-shadow:0 18px 52px rgba(61,65,39,.22);color:#242719}
+.cookie-copy{max-width:700px}.cookie-copy strong{font-family:Georgia,serif;font-size:20px}.cookie-copy p{margin:6px 0 0;font-size:14px;line-height:1.55}.cookie-copy a{color:#596128;text-decoration:underline}
+.cookie-actions{display:flex;gap:10px;flex:0 0 auto}.cookie-actions button{min-height:44px;padding:10px 15px;border:1px solid #636b2f;background:#fff;color:#30351d;font:700 14px Arial,sans-serif;cursor:pointer}.cookie-actions .cookie-accept{background:#636b2f;color:#fff}
+.author-note{margin:18px 0}.comparison{width:100%;border-collapse:collapse;margin-top:18px}.comparison th,.comparison td{text-align:left;padding:14px;border-bottom:1px solid #dfe5bc;vertical-align:top}.comparison th{background:#f3f5e8;color:#30351d}.info-stack{display:grid;gap:18px}.info-stack .info-block{margin:0}
+@media(max-width:700px){.cookie-consent{left:12px;right:12px;bottom:12px;display:block;padding:18px}.cookie-actions{margin-top:14px}.cookie-actions button{flex:1}.comparison{display:block;overflow-x:auto;white-space:normal}.page-hero .author-note{margin-top:18px}}
+/* END GROWTH UI */
