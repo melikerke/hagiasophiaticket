@@ -84,5 +84,11 @@
     banner();
   });
 
+  document.addEventListener("change", function (event) {
+    var select = event.target.closest(".language-switcher");
+    if (!select || !select.value) return;
+    window.location.assign(select.value);
+  });
+
   if (!readConsent()) banner();
 })();
