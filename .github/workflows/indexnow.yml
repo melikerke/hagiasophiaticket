@@ -1,0 +1,63 @@
+name: Notify IndexNow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for GitHub Pages deployment
+        run: sleep 90
+
+      - name: Submit sitemap URLs to IndexNow
+        env:
+          INDEXNOW_KEY: hst2026f4c9a7b31d6e8420
+        run: |
+          node - <<'NODE'
+          const https = require('https');
+
+          https.get('https://hagiasophiaticket.com/sitemap.xml', res => {
+            let xml = '';
+
+            res.on('data', chunk => xml += chunk);
+            res.on('end', () => {
+              const urlList = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)]
+                .map(match => match[1]);
+
+              const body = JSON.stringify({
+                host: 'hagiasophiaticket.com',
+                key: process.env.INDEXNOW_KEY,
+                keyLocation: `https://hagiasophiaticket.com/${process.env.INDEXNOW_KEY}.txt`,
+                urlList
+              });
+
+              const req = https.request(
+                'https://api.indexnow.org/indexnow',
+                {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'Content-Length': Buffer.byteLength(body)
+                  }
+                },
+                response => {
+                  console.log('IndexNow status:', response.statusCode);
+                  if (response.statusCode >= 400) process.exitCode = 1;
+                }
+              );
+
+              req.on('error', error => {
+                console.error(error);
+                process.exitCode = 1;
+              });
+
+              req.end(body);
+            });
+          });
+          NODE
