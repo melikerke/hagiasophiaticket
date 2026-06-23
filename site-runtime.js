@@ -79,6 +79,18 @@
   });
 
   document.addEventListener("click", function (event) {
+    var link = event.target.closest("a[data-social-platform]");
+    if (!link || typeof window.gtag !== "function") return;
+    window.gtag("event", "social_click", {
+      platform: link.getAttribute("data-social-platform"),
+      language: language,
+      page: location.pathname,
+      button_position: "footer",
+      transport_type: "beacon"
+    });
+  });
+
+  document.addEventListener("click", function (event) {
     if (!event.target.closest("[data-cookie-settings]")) return;
     event.preventDefault();
     banner();
