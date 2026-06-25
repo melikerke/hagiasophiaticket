@@ -59,6 +59,92 @@
     return "content";
   }
 
+  function setupMobileMenu() {
+    var navShell = document.querySelector("header .nav");
+    if (!navShell || navShell.querySelector(".mobile-menu-toggle")) return;
+    var menu = navShell.querySelector("nav");
+    if (!menu) return;
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "mobile-menu-toggle";
+    button.setAttribute("aria-label", "Open menu");
+    button.setAttribute("aria-expanded", "false");
+    button.innerHTML = "<span></span><span></span><span></span>";
+    navShell.insertBefore(button, menu);
+    button.addEventListener("click", function () {
+      var open = navShell.classList.toggle("menu-open");
+      button.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.addEventListener("click", function (event) {
+      if (!navShell.classList.contains("menu-open") || navShell.contains(event.target)) return;
+      navShell.classList.remove("menu-open");
+      button.setAttribute("aria-expanded", "false");
+    });
+    menu.addEventListener("click", function (event) {
+      if (!event.target.closest("a")) return;
+      navShell.classList.remove("menu-open");
+      button.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  function setupLanguageMenu() {
+    var control = document.querySelector(".language-control");
+    if (!control || control.classList.contains("enhanced")) return;
+    var select = control.querySelector(".language-switcher");
+    if (!select) return;
+    var selected = select.options[select.selectedIndex] || select.options[0];
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "lang-trigger";
+    button.setAttribute("aria-haspopup", "true");
+    button.setAttribute("aria-expanded", "false");
+    button.innerHTML = '<span class="lang-current">' + selected.textContent.trim() + '</span><span aria-hidden="true">▾</span>';
+    var list = document.createElement("div");
+    list.className = "lang-list";
+    list.setAttribute("role", "menu");
+    Array.prototype.forEach.call(select.options, function (option) {
+      var link = document.createElement("a");
+      link.href = option.value;
+      link.textContent = option.textContent.trim();
+      link.setAttribute("role", "menuitem");
+      if (option.selected) link.setAttribute("aria-current", "true");
+      list.appendChild(link);
+    });
+    control.classList.add("enhanced");
+    control.appendChild(button);
+    control.appendChild(list);
+    button.addEventListener("click", function () {
+      var open = control.classList.toggle("open");
+      button.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.addEventListener("click", function (event) {
+      if (!control.classList.contains("open") || control.contains(event.target)) return;
+      control.classList.remove("open");
+      button.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  function setupMobileToc() {
+    var article = document.querySelector(".article-wrap .article");
+    var toc = document.querySelector(".article-rail .toc ol");
+    if (!article || !toc || article.querySelector(".mobile-toc")) return;
+    var labels = {
+      en: "Contents",
+      de: "Inhalt",
+      fr: "Sommaire",
+      es: "Contenido"
+    };
+    var details = document.createElement("details");
+    details.className = "mobile-toc";
+    details.innerHTML = "<summary>" + (labels[language] || labels.en) + "</summary>" + toc.outerHTML;
+    var anchor = article.querySelector(".meta-row");
+    if (anchor && anchor.nextSibling) {
+      article.insertBefore(details, anchor.nextSibling);
+    } else {
+      article.insertBefore(details, article.firstChild);
+    }
+  }
+
   document.addEventListener("click", function (event) {
     var link = event.target.closest('a[rel~="sponsored"]');
     if (!link) return;
@@ -103,4 +189,7 @@
   });
 
   if (!readConsent()) banner();
+  setupMobileMenu();
+  setupLanguageMenu();
+  setupMobileToc();
 })();
