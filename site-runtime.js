@@ -61,16 +61,20 @@
 
   function setupMobileMenu() {
     var navShell = document.querySelector("header .nav");
-    if (!navShell || navShell.querySelector(".mobile-menu-toggle")) return;
+    if (!navShell || navShell.getAttribute("data-menu-ready") === "true") return;
     var menu = navShell.querySelector("nav");
     if (!menu) return;
-    var button = document.createElement("button");
-    button.type = "button";
-    button.className = "mobile-menu-toggle";
+    var button = navShell.querySelector(".mobile-menu-toggle");
+    if (!button) {
+      button = document.createElement("button");
+      button.type = "button";
+      button.className = "mobile-menu-toggle";
+      button.innerHTML = "<span></span><span></span><span></span>";
+      navShell.insertBefore(button, menu);
+    }
     button.setAttribute("aria-label", "Open menu");
     button.setAttribute("aria-expanded", "false");
-    button.innerHTML = "<span></span><span></span><span></span>";
-    navShell.insertBefore(button, menu);
+    navShell.setAttribute("data-menu-ready", "true");
     button.addEventListener("click", function () {
       var open = navShell.classList.toggle("menu-open");
       button.setAttribute("aria-expanded", open ? "true" : "false");
