@@ -1,0 +1,24 @@
+name: Weekly affiliate offer check
+on:
+  schedule:
+    - cron: '15 7 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check ticket links
+        run: |
+          set -e
+          for item in "Main|https://gyg.me/9TxDoMwH|28" "Blue Mosque|https://gyg.me/Y5QliR06|30.49" "Basilica Cistern|https://gyg.me/aumuVrOk|85" "Old City|https://gyg.me/fI4B3R9A|147"; do
+            IFS='|' read -r product url displayed_price <<< "$item"
+            headers=$(curl -sSI "$url")
+            status=$(printf '%s' "$headers" | head -1 | awk '{print $2}')
+            location=$(printf '%s' "$headers" | awk 'BEGIN{IGNORECASE=1}/^location:/{print $2}' | tr -d '\r')
+            echo "$product: short-link HTTP $status -> $location; displayed price EUR $displayed_price"
+            test "$status" -ge 300 -a "$status" -lt 400
+            printf '%s' "$location" | grep -q 'getyourguide.com/'
+          done
+          echo 'Short-link availability passed. Confirm product availability and live prices manually because partner pages block automated requests.'

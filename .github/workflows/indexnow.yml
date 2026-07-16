@@ -29,12 +29,8 @@ jobs:
                 if(r.statusCode>=400) process.exitCode=1;
               });
               req.on('error',e=>{
-                if(responseReceived){
-                  console.warn('Connection closed after IndexNow accepted the request:',e.code);
-                  return;
-                }
-                console.error(e);
-                process.exitCode=1;
+                if(responseReceived){console.warn('Connection closed after IndexNow accepted the request:',e.code);return;}
+                console.error(e);process.exitCode=1;
               });
               req.end(body);
             });
