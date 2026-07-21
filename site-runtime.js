@@ -14,6 +14,7 @@
   var offers = {
     "9TxDoMwH": { product: "Hagia Sophia Entry Ticket", price: 28 },
     "Y5QliR06": { product: "Hagia Sophia and Blue Mosque Audio Guide", price: 30.49 },
+    "x9grgdpi": { product: "English Basilica Cistern Fast-Track Guided Tour", price: 57.47 },
     "aumuVrOk": { product: "Hagia Sophia and Basilica Cistern", price: 85 },
     "fI4B3R9A": { product: "Hagia Sophia, Basilica Cistern and Topkapi Palace", price: 147 }
   };
