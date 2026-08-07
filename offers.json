@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "affiliate": {
+    "partnerId": "UYM3DXX",
+    "referralRedirect": "1",
+    "currency": "EUR"
+  },
+  "offers": {
+    "hagia-sophia-entry": {
+      "shortUrl": "https://gyg.me/9TxDoMwH",
+      "destinationUrl": "https://www.getyourguide.com/istanbul-l56/istanbul-hagia-sophia-skip-the-line-ticket-museum-option-t709111/?partner_id=UYM3DXX&referral_redirect=1",
+      "expectedActivityId": "709111",
+      "name": "Istanbul: Hagia Sophia Skip-the-Line Ticket & Museum Option",
+      "checkedAt": "2026-08-07",
+      "terms": {
+        "cancellation": "Non-refundable",
+        "fulfillment": "A visit-day code must be exchanged for the mosque ticket at the Hagia Sophia History and Experience Museum ticket kiosk.",
+        "security": "Mandatory security screening cannot be skipped.",
+        "validity": "Selected visit date and option; confirm the final time window at checkout.",
+        "notes": [
+          "Upper-gallery visitor access only; the ground floor is reserved for worship.",
+          "Audio commentary in 23 languages and an AR experience are included in the listed mosque-ticket option.",
+          "Children under 8 enter free when valid proof of age is presented."
+        ]
+      }
+    },
+    "hagia-blue-audio": {
+      "shortUrl": "https://gyg.me/Y5QliR06",
+      "destinationUrl": "https://www.getyourguide.com/istanbul-l56/hagia-sophia-skip-the-line-ticket-blue-mosque-audio-guide-t597339/?partner_id=UYM3DXX&referral_redirect=1",
+      "expectedActivityId": "597339",
+      "name": "Hagia Sophia Skip-the-Line Ticket & Blue Mosque Audio Guide",
+      "checkedAt": "2026-08-07",
+      "terms": {
+        "cancellation": "Free cancellation up to 24 hours before the activity for a full refund.",
+        "fulfillment": "Supplier QR tickets are normally emailed after 18:00 on the day before the visit; same-day bookings are sent after booking. The GetYourGuide voucher itself is not the entry ticket.",
+        "security": "Mandatory security checks at the attractions cannot be skipped.",
+        "validity": "Valid for 1-2 days depending on the selected option.",
+        "notes": [
+          "Audio guides run on the visitor's charged smartphone; bring headphones.",
+          "Blue Mosque entry is free; this offer supplies its audio guide.",
+          "A Basilica Cistern ticket is included only when that upgrade is selected."
+        ]
+      }
+    },
+    "basilica-audio": {
+      "shortUrl": "https://gyg.me/x9grgdpi",
+      "destinationUrl": "https://www.getyourguide.com/istanbul-l56/istanbul-basilica-cistern-fast-track-entry-and-audio-guide-t523484/?partner_id=UYM3DXX&referral_redirect=1",
+      "expectedActivityId": "523484",
+      "name": "Istanbul: Basilica Cistern Fast-Track Entry and Audio Guide",
+      "checkedAt": "2026-08-07",
+      "terms": {
+        "cancellation": "Free cancellation up to 24 hours before the activity for a full refund.",
+        "fulfillment": "The supplier emails the QR ticket and audio-guide instructions, normally after 18:00 on the day before the visit; same-day bookings are sent after booking.",
+        "security": "Fast track applies to the ticket line, not to any required security control.",
+        "validity": "All-day entry on the selected date.",
+        "notes": [
+          "The base product is self-guided with a multilingual smartphone audio guide, not an English live guided tour.",
+          "Download the audio guide before entering because mobile internet is limited inside the cistern.",
+          "A live guide or Hagia Sophia entry is included only if the corresponding option is selected."
+        ]
+      }
+    },
+    "topkapi-self-guided": {
+      "shortUrl": "https://gyg.me/wn0Aj9s6",
+      "destinationUrl": "https://www.getyourguide.com/istanbul-l56/istanbul-topkapi-palace-entry-self-guided-experience-t1231414/?partner_id=UYM3DXX&referral_redirect=1",
+      "expectedActivityId": "1231414",
+      "name": "Istanbul: Topkapi Palace Entry & Self-Guided Experience",
+      "checkedAt": "2026-08-07",
+      "terms": {
+        "cancellation": "Confirm the selected option's cancellation terms at checkout.",
+        "fulfillment": "Confirm ticket delivery and any host meeting instructions at checkout.",
+        "security": "Ticket-line access does not imply that security controls can be skipped.",
+        "validity": "Confirm the selected entry date and time at checkout.",
+        "notes": [
+          "This activity is a self-guided experience; do not market the same URL as a separate live-guided product.",
+          "Confirm Harem inclusion and audio-guide languages for the selected option before publishing them."
+        ]
+      }
+    },
+    "hagia-cistern-topkapi-option": {
+      "shortUrl": "https://gyg.me/aumuVrOk",
+      "destinationUrl": "https://www.getyourguide.com/istanbul-l56/basilica-cistern-hagia-sophia-with-optional-topkapi-palace-t713788/?partner_id=UYM3DXX&referral_redirect=1",
+      "expectedActivityId": "713788",
+      "name": "Basilica Cistern & Hagia Sophia with Optional Topkapi Palace",
+      "checkedAt": "2026-08-07",
+      "terms": {
+        "cancellation": "Confirm the selected option's cancellation terms at checkout.",
+        "fulfillment": "Hagia Sophia and Basilica Cistern tickets are emailed one day before the selected date. The optional Topkapi Palace visit requires meeting a host at the stated meeting point.",
+        "security": "Mandatory security queues cannot be skipped and may take up to 30 minutes in high season.",
+        "validity": "Hagia Sophia and Basilica Cistern tickets are flexible within the time window stated by the supplier; Topkapi Palace uses hosted entry when selected.",
+        "notes": [
+          "Topkapi Palace is optional and is not a live guided tour.",
+          "Current product notes state that there is no Basilica Cistern audio guide, Hagia Sophia audio is English-only, and the optional Topkapi audio guide is offered in six languages.",
+          "Topkapi Palace is closed on Tuesdays."
+        ]
+      }
+    },
+    "three-attraction-combo": {
+      "shortUrl": "https://gyg.me/fI4B3R9A",
+      "destinationUrl": "https://www.getyourguide.com/istanbul-l56/basilica-cistern-topkapi-palace-hagia-sophia-combo-tickets-t948206/?partner_id=UYM3DXX&referral_redirect=1",
+      "expectedActivityId": "948206",
+      "name": "Basilica Cistern, Topkapi Palace & Hagia Sophia Combo Tickets",
+      "checkedAt": "2026-08-07",
+      "terms": {
+        "cancellation": "Free cancellation up to 24 hours before the activity for a full refund.",
+        "fulfillment": "Hagia Sophia and Basilica Cistern tickets are emailed one day before the visit. Topkapi Palace and Harem require meeting a host for a timed entry.",
+        "security": "Mandatory security queues cannot be skipped and may take up to 30 minutes in high season.",
+        "validity": "Valid for 3 days from first use; Topkapi Palace still requires a hosted time slot.",
+        "notes": [
+          "Topkapi Palace and Harem Section entry are included in the listed base option.",
+          "Current product notes list a six-language audio guide for Topkapi, English-only audio for Hagia Sophia, and no Basilica Cistern audio guide.",
+          "Topkapi Palace is closed on Tuesdays."
+        ]
+      }
+    },
+    "blue-hagia-small-group": {
+      "shortUrl": "https://gyg.me/n4qq65P8",
+      "destinationUrl": "https://www.getyourguide.com/istanbul-l56/istanbul-blue-mosque-hagia-sophia-small-group-guided-tour-t794467/?partner_id=UYM3DXX&referral_redirect=1",
+      "expectedActivityId": "794467",
+      "name": "Istanbul: Blue Mosque & Hagia Sophia Small-Group Guided Tour",
+      "checkedAt": "2026-08-07",
+      "terms": {
+        "cancellation": "Confirm the selected option's cancellation terms at checkout.",
+        "fulfillment": "Meet the live guide at the meeting point shown for the selected option.",
+        "security": "Any ticket-line benefit does not remove mandatory security controls.",
+        "validity": "Guided tour on the selected date and start time.",
+        "notes": [
+          "The target activity covers both the Blue Mosque and Hagia Sophia; do not describe it only as a generic Old City walk.",
+          "Confirm included admission tickets, guide language, group size, and meeting point at checkout."
+        ]
+      }
+    },
+    "topkapi-harem-guided": {
+      "shortUrl": "https://gyg.me/SmBh7lVw",
+      "destinationUrl": "https://www.getyourguide.com/istanbul-l56/istanbul-topkapi-palace-harem-tour-including-entry-ticket-t127010/?partner_id=UYM3DXX&referral_redirect=1",
+      "expectedActivityId": "127010",
+      "name": "Istanbul: Topkapi Palace and Harem Guided Tour with Ticket",
+      "checkedAt": "2026-08-07",
+      "terms": {
+        "cancellation": "Free cancellation up to 24 hours before the activity for a full refund.",
+        "fulfillment": "Meet the live guide at the option-specific meeting point before entry.",
+        "security": "Skip-the-ticket-line access does not mean that security controls can be skipped.",
+        "validity": "Approximately 3 hours on the selected date and start time.",
+        "notes": [
+          "Topkapi Palace and Harem entry are included.",
+          "Live guide options are offered in English and German; confirm the selected option.",
+          "This URL must not be used for a Hagia Sophia, Blue Mosque, and Basilica Cistern tour."
+        ]
+      }
+    },
+    "three-sights-guided": {
+      "shortUrl": "https://gyg.me/k8iuljcs",
+      "destinationUrl": "https://www.getyourguide.com/istanbul-l56/istanbul-blue-mosque-hagia-sophia-basilica-cistern-tour-t1051517/?partner_id=UYM3DXX&referral_redirect=1",
+      "expectedActivityId": "1051517",
+      "name": "Istanbul: Blue Mosque, Hagia Sophia & Basilica Cistern Tour",
+      "checkedAt": "2026-08-07",
+      "terms": {
+        "cancellation": "Confirm the selected option's cancellation terms at checkout.",
+        "fulfillment": "Meet the live guide at the meeting point shown for the selected option.",
+        "security": "Any ticket-line benefit does not remove mandatory security controls.",
+        "validity": "Guided tour on the selected date and start time.",
+        "notes": [
+          "The target activity covers the Blue Mosque, Hagia Sophia, and Basilica Cistern.",
+          "Confirm included entry tickets, guide language, duration, and group size at checkout.",
+          "This URL must not be described as a generic small-group Old City tour without the three named sights."
+        ]
+      }
+    },
+    "topkapi-hagia-small-group": {
+      "shortUrl": "https://gyg.me/IDOlO7yX",
+      "destinationUrl": "https://www.getyourguide.com/istanbul-l56/istanbulsmall-group-topkapi-and-hagia-sophia-tour-t176826/?partner_id=UYM3DXX&referral_redirect=1",
+      "expectedActivityId": "176826",
+      "name": "Istanbul: Small-Group Topkapi and Hagia Sophia Tour",
+      "checkedAt": "2026-08-07",
+      "terms": {
+        "cancellation": "Confirm the selected option's cancellation terms at checkout.",
+        "fulfillment": "Meet the live guide at the meeting point shown for the selected option.",
+        "security": "Any pre-reserved ticket benefit does not remove mandatory security controls.",
+        "validity": "Guided tour on the selected date and start time.",
+        "notes": [
+          "The destination title names Topkapi Palace and Hagia Sophia.",
+          "Do not claim Basilica Cistern inclusion unless the selected live option explicitly includes it.",
+          "Confirm included tickets, Harem access, duration, language, and group size at checkout."
+        ]
+      }
+    }
+  }
+}
