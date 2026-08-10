@@ -22,11 +22,11 @@
   var analyticsLoading = false;
   var offers = {
     "9TxDoMwH": { id: "t709111", product: "Hagia Sophia Entry Ticket", price: 28 },
-    "Y5QliR06": { id: "t597339", product: "Hagia Sophia Ticket and Blue Mosque Audio Guide", price: 30.49 },
+    "Y5QliR06": { id: "t597339", product: "Hagia Sophia Ticket and Blue Mosque Audio Guide", price: 28 },
     "x9grgdpi": { id: "t523484", product: "Basilica Cistern Fast-Track Entry and Audio Guide", price: 57.47 },
     "wn0Aj9s6": { id: "t1231414", product: "Topkapi Palace Entry Self-Guided Experience", price: 69.95 },
     "aumuVrOk": { id: "t713788", product: "Hagia Sophia and Basilica Cistern Combo", price: 85 },
-    "fI4B3R9A": { id: "t948206", product: "Hagia Sophia, Basilica Cistern and Topkapi Palace Combo", price: 147 },
+    "fI4B3R9A": { id: "t948206", product: "Hagia Sophia, Basilica Cistern and Topkapi Palace Combo", price: 142 },
     "n4qq65P8": { id: "t794467", product: "Hagia Sophia and Blue Mosque Small-Group Guided Tour", price: 54.28 },
     "SmBh7lVw": { id: "t127010", product: "Topkapi Palace and Harem Guided Tour", price: 107.10 },
     "k8iuljcs": { id: "t1051517", product: "Hagia Sophia, Blue Mosque and Basilica Cistern Tour", price: 122.55 },
