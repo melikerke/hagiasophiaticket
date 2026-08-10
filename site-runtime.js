@@ -86,17 +86,59 @@
     if (value === "granted") loadAnalytics();
   }
 
-  function banner() {
+  function safeFocus(element) {
+    if (!element || !document.documentElement.contains(element) || typeof element.focus !== "function") return;
+    if (element.disabled || element.getAttribute("aria-hidden") === "true" || element.closest("[inert]")) return;
+    var style = typeof window.getComputedStyle === "function" ? window.getComputedStyle(element) : null;
+    if (style && (style.display === "none" || style.visibility === "hidden")) return;
+    try {
+      element.focus({ preventScroll: true });
+    } catch (e) {
+      element.focus();
+    }
+  }
+
+  function banner(options) {
+    options = options || {};
+    var opener = options.opener || null;
     var old = document.getElementById("cookie-consent");
     if (old) old.remove();
     var node = document.createElement("section");
     node.id = "cookie-consent";
     node.className = "cookie-consent";
-    node.setAttribute("aria-label", copy.title);
-    node.innerHTML = '<div class="cookie-copy"><strong>' + copy.title + '</strong><p>' + copy.text + ' <a href="' + (cookieRoutes[language] || cookieRoutes.en) + '">' + copy.policy + '</a></p></div><div class="cookie-actions"><button type="button" class="cookie-reject">' + copy.reject + '</button><button type="button" class="cookie-accept">' + copy.accept + '</button></div>';
+    node.tabIndex = -1;
+    node.setAttribute("role", "dialog");
+    node.setAttribute("aria-modal", "false");
+    node.setAttribute("aria-labelledby", "cookie-consent-title");
+    node.setAttribute("aria-describedby", "cookie-consent-description");
+    node.setAttribute("aria-live", "polite");
+    node.setAttribute("aria-atomic", "true");
+    node.innerHTML = '<div class="cookie-copy"><strong id="cookie-consent-title">' + copy.title + '</strong><p id="cookie-consent-description">' + copy.text + ' <a href="' + (cookieRoutes[language] || cookieRoutes.en) + '">' + copy.policy + '</a></p></div><div class="cookie-actions"><button type="button" class="cookie-reject">' + copy.reject + '</button><button type="button" class="cookie-accept">' + copy.accept + '</button></div>';
     document.body.appendChild(node);
-    node.querySelector(".cookie-accept").addEventListener("click", function () { updateConsent("granted"); node.remove(); });
-    node.querySelector(".cookie-reject").addEventListener("click", function () { updateConsent("denied"); node.remove(); });
+
+    function closeBanner(returnFocus) {
+      node.remove();
+      if (returnFocus && opener) {
+        window.setTimeout(function () { safeFocus(opener); }, 0);
+      }
+    }
+
+    node.querySelector(".cookie-accept").addEventListener("click", function () {
+      updateConsent("granted");
+      closeBanner(true);
+    });
+    node.querySelector(".cookie-reject").addEventListener("click", function () {
+      updateConsent("denied");
+      closeBanner(true);
+    });
+    node.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape" || !opener) return;
+      event.preventDefault();
+      closeBanner(true);
+    });
+    if (options.focus && opener) {
+      window.setTimeout(function () { safeFocus(node); }, 0);
+    }
   }
 
   function readConsent() {
@@ -142,6 +184,36 @@
       product: dataProduct || (offer ? offer.product : dataOffer || "Affiliate ticket"),
       price: !isNaN(dataPrice) ? dataPrice : offer ? offer.price : 0
     };
+  }
+
+  function normalizeEnglishHeader() {
+    if (document.documentElement.lang !== "en") return;
+    var navigation = document.querySelector("header .nav nav");
+    var destinations = [
+      { label: "Tickets", href: "/#tickets" },
+      { label: "Combo Tickets", href: "/combo-tickets/" },
+      { label: "Visitor Info", href: "/#visitor-info" },
+      { label: "Visitor Guides", href: "/guides/" }
+    ];
+    if (navigation) {
+      var links = navigation.querySelectorAll("a");
+      Array.prototype.forEach.call(destinations, function (destination, index) {
+        if (!links[index]) return;
+        links[index].textContent = destination.label;
+        links[index].setAttribute("href", destination.href);
+      });
+    }
+
+    if (document.body.classList.contains("home-v2")) return;
+    var headerCta = document.querySelector("header .nav-actions a.btn, header .nav-actions a");
+    if (!headerCta) return;
+    headerCta.textContent = "Compare tickets";
+    headerCta.setAttribute("href", "/#tickets");
+    headerCta.removeAttribute("target");
+    headerCta.removeAttribute("rel");
+    headerCta.removeAttribute("aria-label");
+    headerCta.removeAttribute("data-offer-id");
+    headerCta.removeAttribute("data-offer");
   }
 
   function setupMobileMenu() {
@@ -327,52 +399,71 @@
   function setupConditionalBuybar() {
     var buybar = document.querySelector("[data-sticky-buybar], .buybar");
     if (!buybar || buybar.getAttribute("data-conditional-ready") === "true") return;
-    var primaryCta = document.querySelector('[data-primary-booking-cta], [data-primary-ticket-cta], .hero-section .hero-actions a[rel~="sponsored"], .landing-hero .hero-actions a[rel~="sponsored"], .hero .hero-actions a[rel~="sponsored"], .tHero a[rel~="sponsored"], .hero-actions .btn');
-    if (primaryCta && primaryCta.closest("[data-sticky-buybar], .buybar")) primaryCta = null;
+    var ctaSelector = [
+      "[data-primary-booking-cta]",
+      "[data-primary-ticket-cta]",
+      "[data-booking-cta]",
+      ".v2-final-cta a.btn",
+      ".final-cta a.btn",
+      "main a[rel~=\"sponsored\"]",
+      "main a[data-offer-id]",
+      "main a[data-offer]"
+    ].join(",");
+    var bookingCtas = Array.prototype.filter.call(document.querySelectorAll(ctaSelector), function (cta) {
+      return !cta.closest("[data-sticky-buybar], .buybar, header, footer");
+    });
     var mobileQuery = window.matchMedia("(max-width: 900px)");
-    var primaryVisible = false;
+    var bookingCtaVisible = false;
     buybar.setAttribute("data-conditional-ready", "true");
 
-    function inViewport() {
-      if (!primaryCta) return false;
-      var rect = primaryCta.getBoundingClientRect();
-      return rect.bottom > 0 && rect.top < window.innerHeight && rect.right > 0 && rect.left < window.innerWidth;
+    function inViewport(cta) {
+      if (!cta || !document.documentElement.contains(cta) || cta.hidden || cta.closest('[hidden], [aria-hidden="true"]')) return false;
+      var style = typeof window.getComputedStyle === "function" ? window.getComputedStyle(cta) : null;
+      if (style && (style.display === "none" || style.visibility === "hidden" || style.visibility === "collapse" || parseFloat(style.opacity) === 0)) return false;
+      var rect = cta.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.top < window.innerHeight && rect.right > 0 && rect.left < window.innerWidth;
     }
 
     function renderBuybar() {
-      var visible = mobileQuery.matches && !primaryVisible;
+      var visible = mobileQuery.matches && !bookingCtaVisible;
       if (visible) {
         buybar.classList.add("is-visible");
         buybar.setAttribute("aria-hidden", "false");
+        buybar.removeAttribute("inert");
       } else {
         buybar.classList.remove("is-visible");
         buybar.setAttribute("aria-hidden", "true");
+        buybar.setAttribute("inert", "");
       }
     }
 
-    primaryVisible = inViewport();
-    renderBuybar();
-    if (primaryCta && "IntersectionObserver" in window) {
-      var observer = new IntersectionObserver(function (entries) {
-        if (!entries.length) return;
-        primaryVisible = entries[0].isIntersecting && entries[0].intersectionRatio > 0;
-        renderBuybar();
-      }, { threshold: [0, 0.01] });
-      observer.observe(primaryCta);
-    } else if (primaryCta) {
-      window.addEventListener("scroll", function () {
-        primaryVisible = inViewport();
-        renderBuybar();
-      }, { passive: true });
-      window.addEventListener("resize", function () {
-        primaryVisible = inViewport();
-        renderBuybar();
-      });
+    function updateBookingCtaVisibility() {
+      bookingCtaVisible = bookingCtas.some(inViewport);
+      renderBuybar();
     }
+
+    updateBookingCtaVisibility();
+    if (bookingCtas.length && "IntersectionObserver" in window) {
+      var observer = new IntersectionObserver(function () {
+        updateBookingCtaVisibility();
+      }, { threshold: [0, 0.01] });
+      bookingCtas.forEach(function (cta) { observer.observe(cta); });
+    } else if (bookingCtas.length) {
+      window.addEventListener("scroll", function () {
+        updateBookingCtaVisibility();
+      }, { passive: true });
+    }
+    window.addEventListener("resize", function () {
+      updateBookingCtaVisibility();
+    });
     if (typeof mobileQuery.addEventListener === "function") {
-      mobileQuery.addEventListener("change", renderBuybar);
+      mobileQuery.addEventListener("change", function () {
+        updateBookingCtaVisibility();
+      });
     } else if (typeof mobileQuery.addListener === "function") {
-      mobileQuery.addListener(renderBuybar);
+      mobileQuery.addListener(function () {
+        updateBookingCtaVisibility();
+      });
     }
   }
 
@@ -409,9 +500,10 @@
   });
 
   document.addEventListener("click", function (event) {
-    if (!event.target.closest("[data-cookie-settings]")) return;
+    var settingsTrigger = event.target.closest("[data-cookie-settings]");
+    if (!settingsTrigger) return;
     event.preventDefault();
-    banner();
+    banner({ opener: settingsTrigger, focus: true });
   });
 
   document.addEventListener("change", function (event) {
@@ -422,6 +514,7 @@
 
   setupAnalytics();
   if (!analyticsConsent) banner();
+  normalizeEnglishHeader();
   setupMobileMenu();
   setupLanguageMenu();
   setupMobileToc();
