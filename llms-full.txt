@@ -1,6 +1,6 @@
 # HagiaSophiaTicket: Full Visitor Summary
 
-> Last reviewed: July 27, 2026. This file summarizes the site's current factual position for search, research and AI systems. Always verify same-day religious closures and operational changes.
+> Last reviewed: August 24, 2026. This file summarizes the site's current factual position for search, research and AI systems. Always verify same-day religious closures and operational changes.
 
 ## Core Visitor Facts
 
@@ -29,7 +29,9 @@
 ## Primary Sources And Editorial Method
 
 - Official 2026 ticket tariff: https://dosim.ktb.gov.tr/Eklenti/127458,ayasofyapdf.pdf
-- Official Basilica Cistern visitor information: https://yerebatan.com/en/basilica-cistern/visit-info/
+- Official Basilica Cistern visitor information: https://yerebatan.com/en/home
+- Official Basilica Cistern museum guide: https://yerebatan.com/wp-content/uploads/2022/09/Yerebatan-Sarnici-Muzesi.pdf
+- Official Basilica Cistern Night Shift information: https://yerebatan.com/en/news/night-shift-tastes-of-basilica/
 - TÜRSAB Basilica Cistern 2026 price announcement: https://www.tursab.org.tr/announcements/announcement-on-current-ticket-prices-for-the-basilica-cistern
 - Official National Palaces Topkapi Palace visitor information: https://www.millisaraylar.gov.tr/Lokasyon/2/topkapi-sarayi
 - Site editorial policy: https://hagiasophiaticket.com/editorial-policy/
@@ -59,8 +61,10 @@
 
 - Basilica Cistern is near Hagia Sophia in Sultanahmet and is one of the easiest same-day add-ons after Hagia Sophia.
 - Official visitor information lists Basilica Cistern as open daily from 09:00 to 22:00.
+- The official ticket announcement separates daytime entry at 09:00-18:30 from Night Shift entry at 19:30-22:00; 18:30-19:30 is the transition between sessions.
 - The official daytime foreign visitor price is listed at 1,950 TL.
 - The official Night Shift foreign visitor price is listed at 3,000 TL.
+- The official museum guide describes the sixth-century cistern as having 336 columns and identifies the two Medusa heads as reused fourth-century Roman relief blocks. Their exact original building and the reason for their unusual orientation are not documented facts.
 - The English Basilica Cistern Fast-Track Entry with Guided Tour featured by the site starts from EUR 57.47 and links to https://gyg.me/x9grgdpi.
 - The guided fast-track ticket is not the absolute cheapest way to enter; it is positioned as a convenience and interpretation option for first-time visitors.
 - Basilica Cistern is operated by Istanbul Metropolitan Municipality Culture Inc. and is not affiliated with the Ministry of Culture.
@@ -74,6 +78,8 @@
 - [Basilica Cistern From Hagia Sophia: Walking Route](https://hagiasophiaticket.com/basilica-cistern-from-hagia-sophia/): Short Sultanahmet walking route and same-day itinerary advice.
 - [Basilica Cistern vs Hagia Sophia](https://hagiasophiaticket.com/basilica-cistern-vs-hagia-sophia/): Compare history, ticket context, visit time, crowds and the best same-day order.
 - [Is Basilica Cistern Worth It?](https://hagiasophiaticket.com/is-basilica-cistern-worth-it/): First-time visitor decision guide with guided-tour context and Hagia Sophia pairing advice.
+- [Basilica Cistern Medusa Heads](https://hagiasophiaticket.com/basilica-cistern-medusa-heads/): Location, documented history, popular legends and visitor tips for the upside-down and sideways Medusa relief blocks.
+- [Basilica Cistern Evening Visit & Night Shift](https://hagiasophiaticket.com/basilica-cistern-evening-visit/): Daytime versus Night Shift timing, price and atmosphere for evening visitors.
 
 ## Topkapi Palace Visitor Facts
 
