@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = resolve(scriptDirectory, "..");
 const registryPath = resolve(repositoryRoot, "offers.json");
+const sitemapPath = resolve(repositoryRoot, "sitemap.xml");
 const redirectsOnly = process.argv.includes("--redirects-only");
 const supportedArguments = new Set(["--redirects-only"]);
 const unknownArguments = process.argv.slice(2).filter((argument) => !supportedArguments.has(argument));
@@ -408,7 +409,206 @@ for (const [activityId, offerId] of offersByActivityId) {
   if (!seenActivityIds.has(activityId)) addWarning(`offers.json: ${offerId} (t${activityId}) is not referenced by a direct URL in production HTML.`);
 }
 
+validateIndexingSignals();
+
 finish(`Validated ${htmlFiles.length} HTML files, ${jsonLdCount} JSON-LD blocks, and ${affiliateUrlCount} direct affiliate URL occurrence(s).`);
+
+function indexingMetadataFor(htmlFile) {
+  const source = contentFor(htmlFile);
+  const robots = new Set();
+  const canonicals = [];
+  const alternates = [];
+
+  for (const match of source.matchAll(/<meta\b[^>]*>/gi)) {
+    const name = (attributeFromTag(match[0], "name") || "").toLowerCase();
+    if (name !== "robots" && name !== "googlebot") continue;
+    const content = (attributeFromTag(match[0], "content") || "").toLowerCase();
+    content.split(/[,\s]+/).filter(Boolean).forEach((directive) => robots.add(directive));
+  }
+
+  for (const match of source.matchAll(/<link\b[^>]*>/gi)) {
+    const tag = match[0];
+    const rel = new Set((attributeFromTag(tag, "rel") || "").toLowerCase().split(/\s+/).filter(Boolean));
+    const href = attributeFromTag(tag, "href");
+    if (rel.has("canonical") && href) {
+      canonicals.push({ href, line: lineNumberAt(source, match.index) });
+    }
+    const language = attributeFromTag(tag, "hreflang");
+    if (rel.has("alternate") && language && href) {
+      alternates.push({ href, language: language.toLowerCase(), line: lineNumberAt(source, match.index) });
+    }
+  }
+
+  return { noindex: robots.has("noindex"), canonicals, alternates };
+}
+
+function siteUrl(rawUrl, baseUrl, context) {
+  let url;
+  try {
+    url = new URL(decodeAttribute(rawUrl), baseUrl);
+  } catch {
+    addError(`${context}: invalid URL ${rawUrl}.`);
+    return null;
+  }
+  if (url.origin !== "https://hagiasophiaticket.com") {
+    addError(`${context}: URL must use https://hagiasophiaticket.com.`);
+    return null;
+  }
+  if (url.search || url.hash) {
+    addError(`${context}: URL must not contain a query string or fragment (${url.href}).`);
+    return null;
+  }
+  return url;
+}
+
+function htmlFileForSiteUrl(url, context) {
+  let pathname;
+  try {
+    pathname = decodeURIComponent(url.pathname);
+  } catch {
+    addError(`${context}: URL path contains invalid percent-encoding (${url.href}).`);
+    return null;
+  }
+
+  let target = resolve(repositoryRoot, `.${pathname}`);
+  const outsidePath = relative(repositoryRoot, target);
+  if (outsidePath === ".." || outsidePath.startsWith(`..${sep}`)) {
+    addError(`${context}: URL path escapes the repository root (${url.href}).`);
+    return null;
+  }
+  if (pathname.endsWith("/")) target = resolve(target, "index.html");
+  return target;
+}
+
+function validateIndexingSignals() {
+  let sitemapSource;
+  try {
+    sitemapSource = readFileSync(sitemapPath, "utf8");
+  } catch (error) {
+    addError(`sitemap.xml could not be read: ${error.message}`);
+    return;
+  }
+
+  const metadataByFile = new Map(htmlFiles.map((htmlFile) => [htmlFile, indexingMetadataFor(htmlFile)]));
+  const sitemapUrls = new Map();
+  const sitemapUrlByFile = new Map();
+  const sitemapLastmodByUrl = new Map();
+
+  for (const match of sitemapSource.matchAll(/<url\b[^>]*>[\s\S]*?<loc\b[^>]*>([\s\S]*?)<\/loc>[\s\S]*?<lastmod\b[^>]*>([\s\S]*?)<\/lastmod>[\s\S]*?<\/url>/gi)) {
+    const context = `sitemap.xml:${lineNumberAt(sitemapSource, match.index)}`;
+    const url = siteUrl(match[1].trim(), "https://hagiasophiaticket.com/", context);
+    const lastmod = match[2].trim();
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(lastmod) || Number.isNaN(Date.parse(`${lastmod}T00:00:00Z`))) {
+      addError(`${context}: lastmod must be a real YYYY-MM-DD date (found ${lastmod}).`);
+    }
+    if (url) sitemapLastmodByUrl.set(url.href, lastmod);
+  }
+
+  for (const match of sitemapSource.matchAll(/<loc\b[^>]*>([\s\S]*?)<\/loc>/gi)) {
+    const line = lineNumberAt(sitemapSource, match.index);
+    const context = `sitemap.xml:${line}`;
+    const url = siteUrl(match[1].trim(), "https://hagiasophiaticket.com/", context);
+    if (!url) continue;
+    if (sitemapUrls.has(url.href)) {
+      addError(`${context}: duplicate sitemap URL ${url.href}.`);
+      continue;
+    }
+    sitemapUrls.set(url.href, { line, url });
+
+    const htmlFile = htmlFileForSiteUrl(url, context);
+    if (!htmlFile) continue;
+    let isFile = false;
+    try {
+      isFile = statSync(htmlFile).isFile();
+    } catch {
+      // Reported below with the expected repository path.
+    }
+    if (!isFile || extname(htmlFile).toLowerCase() !== ".html") {
+      addError(`${context}: sitemap URL ${url.href} has no HTML file (expected ${relativePath(htmlFile)}).`);
+      continue;
+    }
+
+    if (sitemapUrlByFile.has(htmlFile)) {
+      addError(`${context}: ${relativePath(htmlFile)} is represented by more than one sitemap URL.`);
+    } else {
+      sitemapUrlByFile.set(htmlFile, url.href);
+    }
+
+    const metadata = metadataByFile.get(htmlFile) || indexingMetadataFor(htmlFile);
+    if (metadata.noindex) {
+      addError(`${context}: noindex page ${relativePath(htmlFile)} must not appear in sitemap.xml.`);
+    }
+    if (metadata.canonicals.length !== 1) {
+      addError(`${relativePath(htmlFile)}: sitemap pages require exactly one canonical link (found ${metadata.canonicals.length}).`);
+      continue;
+    }
+    const canonical = metadata.canonicals[0];
+    const canonicalUrl = siteUrl(canonical.href, url.href, `${relativePath(htmlFile)}:${canonical.line} canonical`);
+    if (canonicalUrl && canonicalUrl.href !== url.href) {
+      addError(`${relativePath(htmlFile)}:${canonical.line}: sitemap URL must be self-canonical; found ${canonicalUrl.href}, expected ${url.href}.`);
+    }
+
+    const lastmod = sitemapLastmodByUrl.get(url.href);
+    const source = contentFor(htmlFile);
+    const schemaDates = [...source.matchAll(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})"/g)].map((dateMatch) => dateMatch[1]);
+    for (const schemaDate of schemaDates) {
+      if (lastmod && schemaDate !== lastmod) {
+        addError(`${relativePath(htmlFile)}: schema dateModified ${schemaDate} must match sitemap lastmod ${lastmod}.`);
+      }
+    }
+    const productCount = (source.match(/"@type"\s*:\s*"Product"/g) || []).length;
+    if (productCount > 1) {
+      addError(`${relativePath(htmlFile)}: indexable pages may not declare multiple Product entities (found ${productCount}).`);
+    }
+  }
+
+  for (const htmlFile of htmlFiles) {
+    const metadata = metadataByFile.get(htmlFile);
+    if (metadata.noindex || !metadata.alternates.length) continue;
+
+    if (metadata.canonicals.length !== 1) {
+      addError(`${relativePath(htmlFile)}: an indexable page with hreflang links requires exactly one canonical link.`);
+      continue;
+    }
+    const sourceCanonical = metadata.canonicals[0];
+    const sourceUrl = siteUrl(
+      sourceCanonical.href,
+      "https://hagiasophiaticket.com/",
+      `${relativePath(htmlFile)}:${sourceCanonical.line} canonical`
+    );
+    if (!sourceUrl) continue;
+
+    for (const alternate of metadata.alternates) {
+      const context = `${relativePath(htmlFile)}:${alternate.line} hreflang=${alternate.language}`;
+      const targetUrl = siteUrl(alternate.href, sourceUrl.href, context);
+      if (!targetUrl) continue;
+      const sitemapEntry = sitemapUrls.get(targetUrl.href);
+      if (!sitemapEntry) {
+        addError(`${context}: hreflang target must be present in sitemap.xml (${targetUrl.href}).`);
+        continue;
+      }
+
+      const targetFile = htmlFileForSiteUrl(targetUrl, context);
+      if (!targetFile) continue;
+      const targetMetadata = metadataByFile.get(targetFile);
+      if (!targetMetadata || targetMetadata.noindex) {
+        addError(`${context}: hreflang target must resolve to indexable HTML (${targetUrl.href}).`);
+        continue;
+      }
+
+      const linksBack = targetMetadata.alternates.some((targetAlternate) => {
+        try {
+          return new URL(decodeAttribute(targetAlternate.href), targetUrl.href).href === sourceUrl.href;
+        } catch {
+          return false;
+        }
+      });
+      if (!linksBack) {
+        addError(`${context}: hreflang target ${targetUrl.href} does not link back to ${sourceUrl.href}.`);
+      }
+    }
+  }
+}
 
 async function validateRemoteRedirects() {
   for (const [offerId, offer] of offerEntries) {

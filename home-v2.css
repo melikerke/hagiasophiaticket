@@ -275,6 +275,14 @@
   min-width: 238px;
 }
 
+.home-v2 .v2-booking-note {
+  max-width: 650px;
+  margin: 12px 0 0;
+  color: var(--v2-muted);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
 .home-v2 .v2-main-terms {
   display: flex;
   flex-wrap: wrap;
@@ -814,6 +822,32 @@
   transition: color 160ms ease, transform 150ms var(--v2-ease-out);
 }
 
+.home-v2 .v2-topic-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.home-v2 .v2-topic-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f5f7e8;
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.home-v2 .v2-topic-links a::after {
+  content: "→";
+  margin-left: 8px;
+}
+
 /* Nearby attractions */
 .home-v2 .v2-nearby-grid {
   display: grid;
@@ -879,6 +913,10 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+}
+
+.home-v2 .v2-carousel-hint {
+  display: none;
 }
 
 .home-v2 .v2-guide-grid > a {
@@ -3220,6 +3258,17 @@
 }
 
 @media (max-width: 700px) {
+  .home-v2 .v2-carousel-hint {
+    display: flex;
+    justify-content: space-between;
+    margin: -4px 0 10px;
+    color: var(--v2-muted);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
   .home-v2 .v2-hero {
     padding-top: 28px;
   }
@@ -3551,6 +3600,17 @@
 }
 
 @media (max-width: 700px) {
+  .home-v2 .v2-topic-links {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .home-v2 .v2-topic-links a {
+    width: 100%;
+    justify-content: space-between;
+    border-radius: 14px;
+  }
+
   .home-v2 .v2-hero-photo figcaption {
     right: 8px;
     bottom: 8px;

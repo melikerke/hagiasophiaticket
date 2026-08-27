@@ -13,9 +13,9 @@
   var cookieRoutes = { en: "/cookie-policy/", de: "/de/cookie-richtlinie/", fr: "/fr/politique-cookies/", es: "/es/politica-cookies/" };
   var interfaceCopy = {
     en: { openMenu: "Open menu", closeMenu: "Close menu", languageMenu: "Choose language" },
-    de: { openMenu: "Menue oeffnen", closeMenu: "Menue schliessen", languageMenu: "Sprache waehlen" },
+    de: { openMenu: "Menü öffnen", closeMenu: "Menü schließen", languageMenu: "Sprache auswählen" },
     fr: { openMenu: "Ouvrir le menu", closeMenu: "Fermer le menu", languageMenu: "Choisir la langue" },
-    es: { openMenu: "Abrir el menu", closeMenu: "Cerrar el menu", languageMenu: "Elegir idioma" }
+    es: { openMenu: "Abrir el menú", closeMenu: "Cerrar el menú", languageMenu: "Elegir idioma" }
   }[language] || { openMenu: "Open menu", closeMenu: "Close menu", languageMenu: "Choose language" };
   var analyticsId = "G-2YB8YFXEVD";
   var analyticsConsent = null;
@@ -204,16 +204,6 @@
       });
     }
 
-    if (document.body.classList.contains("home-v2")) return;
-    var headerCta = document.querySelector("header .nav-actions a.btn, header .nav-actions a");
-    if (!headerCta) return;
-    headerCta.textContent = "Compare tickets";
-    headerCta.setAttribute("href", "/#tickets");
-    headerCta.removeAttribute("target");
-    headerCta.removeAttribute("rel");
-    headerCta.removeAttribute("aria-label");
-    headerCta.removeAttribute("data-offer-id");
-    headerCta.removeAttribute("data-offer");
   }
 
   function setupMobileMenu() {
@@ -396,6 +386,49 @@
     }
   }
 
+  function setupGuideDirectory() {
+    var tools = document.querySelector("[data-guide-tools]");
+    var grid = document.querySelector("[data-guide-grid]");
+    if (!tools || !grid || tools.getAttribute("data-ready") === "true") return;
+    var search = tools.querySelector("[data-guide-search]");
+    var status = tools.querySelector("[data-guide-count]");
+    var buttons = Array.prototype.slice.call(tools.querySelectorAll("[data-guide-filter]"));
+    var cards = Array.prototype.slice.call(grid.querySelectorAll("[data-guide-card]"));
+    var activeFilter = "all";
+    tools.setAttribute("data-ready", "true");
+
+    cards.forEach(function (card) {
+      var text = (card.textContent + " " + (card.getAttribute("href") || "")).toLowerCase();
+      var category = /ticket|combo|price|queue/.test(text) ? "tickets"
+        : /basilica|topkapi|blue mosque|near hagia|sultanahmet/.test(text) ? "nearby"
+          : /history|interior|mosaic|architecture|gallery|photo/.test(text) ? "inside"
+            : "visit";
+      card.setAttribute("data-guide-category", category);
+    });
+
+    function update() {
+      var query = (search ? search.value : "").trim().toLowerCase();
+      var visible = 0;
+      cards.forEach(function (card) {
+        var filterMatches = activeFilter === "all" || card.getAttribute("data-guide-category") === activeFilter;
+        var queryMatches = !query || card.textContent.toLowerCase().indexOf(query) !== -1;
+        card.hidden = !(filterMatches && queryMatches);
+        if (!card.hidden) visible += 1;
+      });
+      if (status) status.textContent = visible + (visible === 1 ? " guide" : " guides") + " shown";
+    }
+
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        activeFilter = button.getAttribute("data-guide-filter") || "all";
+        buttons.forEach(function (item) { item.setAttribute("aria-pressed", item === button ? "true" : "false"); });
+        update();
+      });
+    });
+    if (search) search.addEventListener("input", update);
+    update();
+  }
+
   function setupConditionalBuybar() {
     var buybar = document.querySelector("[data-sticky-buybar], .buybar");
     if (!buybar || buybar.getAttribute("data-conditional-ready") === "true") return;
@@ -518,5 +551,6 @@
   setupMobileMenu();
   setupLanguageMenu();
   setupMobileToc();
+  setupGuideDirectory();
   setupConditionalBuybar();
 })();
