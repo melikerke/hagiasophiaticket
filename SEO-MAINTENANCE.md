@@ -1,5 +1,16 @@
 # Search recovery maintenance
 
+## Owner-supplied starting price, September 9, 2026
+
+The owner subsequently instructed us to display the €28 entry starting price.
+It is restored in the homepage entry CTA, entry card, comparison, closing CTA
+and mobile bar, with a matching entry in the English price guide. This is an
+owner-supplied starting price, not a newly verified checkout quote. The full
+review dates in `offers.json` remain unchanged. No new Offer price schema or
+claim of being the cheapest seller on the internet is added. Other packages'
+previous starting prices remain removed. The final price depends on the date
+and option selected on GetYourGuide.
+
 ## Homepage review, September 9, 2026
 
 The homepage now separates the date of a complete offer review (August 7) from
