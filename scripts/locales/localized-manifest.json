@@ -1,0 +1,222 @@
+{
+  "groups": [
+    {
+      "en": "/",
+      "de": "/de/",
+      "fr": "/fr/",
+      "es": "/es/"
+    },
+    {
+      "en": "/hagia-sophia-opening-hours/",
+      "de": "/de/hagia-sophia-oeffnungszeiten/",
+      "fr": "/fr/horaires-sainte-sophie/",
+      "es": "/es/horarios-santa-sofia/"
+    },
+    {
+      "en": "/hagia-sophia-ticket-price/",
+      "de": "/de/hagia-sophia-ticketpreis/",
+      "fr": "/fr/prix-billet-sainte-sophie/",
+      "es": "/es/precio-entrada-santa-sofia/"
+    },
+    {
+      "en": "/hagia-sophia-dress-code/",
+      "de": "/de/hagia-sophia-kleiderordnung/",
+      "fr": "/fr/tenue-sainte-sophie/",
+      "es": "/es/codigo-vestimenta-santa-sofia/"
+    },
+    {
+      "en": "/hagia-sophia-entrance-visitor-route/",
+      "de": "/de/hagia-sophia-eingang-besucherroute/",
+      "fr": "/fr/entree-parcours-visiteur-sainte-sophie/",
+      "es": "/es/entrada-recorrido-visitantes-santa-sofia/"
+    },
+    {
+      "en": "/how-long-does-hagia-sophia-take/",
+      "de": "/de/wie-lange-dauert-hagia-sophia/",
+      "fr": "/fr/combien-de-temps-sainte-sophie/",
+      "es": "/es/cuanto-tiempo-santa-sofia/"
+    },
+    {
+      "en": "/hagia-sophia-vs-blue-mosque/",
+      "de": "/de/hagia-sophia-oder-blaue-moschee/",
+      "fr": "/fr/sainte-sophie-ou-mosquee-bleue/",
+      "es": "/es/santa-sofia-o-mezquita-azul/"
+    },
+    {
+      "en": "/hagia-sophia-history/",
+      "de": "/de/hagia-sophia-geschichte/",
+      "fr": "/fr/histoire-sainte-sophie/",
+      "es": "/es/historia-santa-sofia/"
+    },
+    {
+      "en": "/hagia-sophia-interior-guide/",
+      "de": "/de/hagia-sophia-innenraum/",
+      "fr": "/fr/interieur-sainte-sophie/",
+      "es": "/es/interior-santa-sofia/"
+    },
+    {
+      "en": "/combo-tickets/",
+      "de": "/de/kombitickets/",
+      "fr": "/fr/billets-combines/",
+      "es": "/es/entradas-combinadas/"
+    },
+    {
+      "en": "/one-day-sultanahmet-itinerary/",
+      "de": "/de/sultanahmet-tagesroute/",
+      "fr": "/fr/itineraire-sultanahmet-une-journee/",
+      "es": "/es/itinerario-sultanahmet-un-dia/"
+    },
+    {
+      "en": "/plan-your-visit/",
+      "de": "/de/besuch-planen/",
+      "fr": "/fr/preparer-votre-visite/",
+      "es": "/es/planifica-tu-visita/"
+    },
+    {
+      "en": "/guides/",
+      "de": "/de/reisefuehrer/",
+      "fr": "/fr/guides/",
+      "es": "/es/guias/"
+    },
+    {
+      "en": "/topkapi-palace-ticket/",
+      "de": "/de/topkapi-palast-tickets/",
+      "fr": "/fr/billets-palais-topkapi/",
+      "es": "/es/entradas-palacio-topkapi/"
+    },
+    {
+      "en": "/istanbul-in-2-days/",
+      "de": "/de/istanbul-in-2-tagen/",
+      "fr": "/fr/istanbul-en-2-jours/",
+      "es": "/es/estambul-en-2-dias/"
+    },
+    {
+      "en": "/basilica-cistern-ticket-price/",
+      "de": "/de/cisterna-basilica-ticketpreis/",
+      "fr": "/fr/prix-citerne-basilique/",
+      "es": "/es/precio-cisterna-basilica/"
+    },
+    {
+      "en": "/basilica-cistern-opening-hours/",
+      "de": "/de/cisterna-basilica-oeffnungszeiten/",
+      "fr": "/fr/horaires-citerne-basilique/",
+      "es": "/es/horarios-cisterna-basilica/"
+    },
+    {
+      "en": "/basilica-cistern-medusa-heads/",
+      "de": "/de/cisterna-basilica-medusenkopfe/",
+      "fr": "/fr/tetes-meduse-citerne-basilique/",
+      "es": "/es/cabezas-medusa-cisterna-basilica/"
+    },
+    {
+      "en": "/basilica-cistern-vs-hagia-sophia/",
+      "de": "/de/cisterna-basilica-oder-hagia-sophia/",
+      "fr": "/fr/citerne-basilique-ou-sainte-sophie/",
+      "es": "/es/cisterna-basilica-o-santa-sofia/"
+    },
+    {
+      "en": "/is-basilica-cistern-worth-it/",
+      "de": "/de/lohnt-sich-cisterna-basilica/",
+      "fr": "/fr/citerne-basilique-vaut-elle-le-coup/",
+      "es": "/es/merece-la-pena-cisterna-basilica/"
+    },
+    {
+      "en": "/hagia-sophia-friday-prayer-time/",
+      "de": "/de/hagia-sophia-freitagsgebet/",
+      "fr": "/fr/sainte-sophie-priere-vendredi/",
+      "es": "/es/santa-sofia-oracion-viernes/"
+    },
+    {
+      "en": "/hagia-sophia-from-galataport-cruise-port/",
+      "de": "/de/galataport-zur-hagia-sophia/",
+      "fr": "/fr/galataport-vers-sainte-sophie/",
+      "es": "/es/galataport-a-santa-sofia/"
+    },
+    {
+      "en": "/best-hagia-sophia-ticket/",
+      "de": "/de/welches-hagia-sophia-ticket/",
+      "fr": "/fr/quel-billet-sainte-sophie/",
+      "es": "/es/que-entrada-santa-sofia/"
+    },
+    {
+      "en": "/things-to-do-near-hagia-sophia/",
+      "de": "/de/sehenswuerdigkeiten-nahe-hagia-sophia/",
+      "fr": "/fr/que-faire-pres-sainte-sophie/",
+      "es": "/es/que-ver-cerca-santa-sofia/"
+    }
+  ],
+  "updated": [
+    "/de/",
+    "/de/besuch-planen/",
+    "/de/cisterna-basilica-medusenkopfe/",
+    "/de/cisterna-basilica-oder-hagia-sophia/",
+    "/de/cisterna-basilica-oeffnungszeiten/",
+    "/de/cisterna-basilica-ticketpreis/",
+    "/de/galataport-zur-hagia-sophia/",
+    "/de/hagia-sophia-eingang-besucherroute/",
+    "/de/hagia-sophia-freitagsgebet/",
+    "/de/hagia-sophia-geschichte/",
+    "/de/hagia-sophia-innenraum/",
+    "/de/hagia-sophia-kleiderordnung/",
+    "/de/hagia-sophia-oder-blaue-moschee/",
+    "/de/hagia-sophia-oeffnungszeiten/",
+    "/de/hagia-sophia-ticketpreis/",
+    "/de/istanbul-in-2-tagen/",
+    "/de/kombitickets/",
+    "/de/lohnt-sich-cisterna-basilica/",
+    "/de/reisefuehrer/",
+    "/de/sehenswuerdigkeiten-nahe-hagia-sophia/",
+    "/de/sultanahmet-tagesroute/",
+    "/de/topkapi-palast-tickets/",
+    "/de/welches-hagia-sophia-ticket/",
+    "/de/wie-lange-dauert-hagia-sophia/",
+    "/es/",
+    "/es/cabezas-medusa-cisterna-basilica/",
+    "/es/cisterna-basilica-o-santa-sofia/",
+    "/es/codigo-vestimenta-santa-sofia/",
+    "/es/cuanto-tiempo-santa-sofia/",
+    "/es/entrada-recorrido-visitantes-santa-sofia/",
+    "/es/entradas-combinadas/",
+    "/es/entradas-palacio-topkapi/",
+    "/es/estambul-en-2-dias/",
+    "/es/galataport-a-santa-sofia/",
+    "/es/guias/",
+    "/es/historia-santa-sofia/",
+    "/es/horarios-cisterna-basilica/",
+    "/es/horarios-santa-sofia/",
+    "/es/interior-santa-sofia/",
+    "/es/itinerario-sultanahmet-un-dia/",
+    "/es/merece-la-pena-cisterna-basilica/",
+    "/es/planifica-tu-visita/",
+    "/es/precio-cisterna-basilica/",
+    "/es/precio-entrada-santa-sofia/",
+    "/es/que-entrada-santa-sofia/",
+    "/es/que-ver-cerca-santa-sofia/",
+    "/es/santa-sofia-o-mezquita-azul/",
+    "/es/santa-sofia-oracion-viernes/",
+    "/fr/",
+    "/fr/billets-combines/",
+    "/fr/billets-palais-topkapi/",
+    "/fr/citerne-basilique-ou-sainte-sophie/",
+    "/fr/citerne-basilique-vaut-elle-le-coup/",
+    "/fr/combien-de-temps-sainte-sophie/",
+    "/fr/entree-parcours-visiteur-sainte-sophie/",
+    "/fr/galataport-vers-sainte-sophie/",
+    "/fr/guides/",
+    "/fr/histoire-sainte-sophie/",
+    "/fr/horaires-citerne-basilique/",
+    "/fr/horaires-sainte-sophie/",
+    "/fr/interieur-sainte-sophie/",
+    "/fr/istanbul-en-2-jours/",
+    "/fr/itineraire-sultanahmet-une-journee/",
+    "/fr/preparer-votre-visite/",
+    "/fr/prix-billet-sainte-sophie/",
+    "/fr/prix-citerne-basilique/",
+    "/fr/que-faire-pres-sainte-sophie/",
+    "/fr/quel-billet-sainte-sophie/",
+    "/fr/sainte-sophie-ou-mosquee-bleue/",
+    "/fr/sainte-sophie-priere-vendredi/",
+    "/fr/tenue-sainte-sophie/",
+    "/fr/tetes-meduse-citerne-basilique/"
+  ]
+}

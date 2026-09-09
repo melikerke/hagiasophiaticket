@@ -6,9 +6,6 @@
     "/affiliate-disclosure/",
     "/basilica-cistern-from-hagia-sophia/",
     "/sultanahmet-walking-tour/",
-    "/de/reisefuehrer/",
-    "/fr/guides/",
-    "/es/guias/",
     "/de/hagia-sophia-architektur/",
     "/fr/architecture-sainte-sophie/",
     "/es/arquitectura-santa-sofia/",
@@ -160,6 +157,84 @@
       "de": "/de/sultanahmet-tagesroute/",
       "fr": "/fr/itineraire-sultanahmet-une-journee/",
       "es": "/es/itinerario-sultanahmet-un-dia/"
+    },
+    {
+      "en": "/plan-your-visit/",
+      "de": "/de/besuch-planen/",
+      "fr": "/fr/preparer-votre-visite/",
+      "es": "/es/planifica-tu-visita/"
+    },
+    {
+      "en": "/guides/",
+      "de": "/de/reisefuehrer/",
+      "fr": "/fr/guides/",
+      "es": "/es/guias/"
+    },
+    {
+      "en": "/topkapi-palace-ticket/",
+      "de": "/de/topkapi-palast-tickets/",
+      "fr": "/fr/billets-palais-topkapi/",
+      "es": "/es/entradas-palacio-topkapi/"
+    },
+    {
+      "en": "/istanbul-in-2-days/",
+      "de": "/de/istanbul-in-2-tagen/",
+      "fr": "/fr/istanbul-en-2-jours/",
+      "es": "/es/estambul-en-2-dias/"
+    },
+    {
+      "en": "/basilica-cistern-ticket-price/",
+      "de": "/de/cisterna-basilica-ticketpreis/",
+      "fr": "/fr/prix-citerne-basilique/",
+      "es": "/es/precio-cisterna-basilica/"
+    },
+    {
+      "en": "/basilica-cistern-opening-hours/",
+      "de": "/de/cisterna-basilica-oeffnungszeiten/",
+      "fr": "/fr/horaires-citerne-basilique/",
+      "es": "/es/horarios-cisterna-basilica/"
+    },
+    {
+      "en": "/basilica-cistern-medusa-heads/",
+      "de": "/de/cisterna-basilica-medusenkopfe/",
+      "fr": "/fr/tetes-meduse-citerne-basilique/",
+      "es": "/es/cabezas-medusa-cisterna-basilica/"
+    },
+    {
+      "en": "/basilica-cistern-vs-hagia-sophia/",
+      "de": "/de/cisterna-basilica-oder-hagia-sophia/",
+      "fr": "/fr/citerne-basilique-ou-sainte-sophie/",
+      "es": "/es/cisterna-basilica-o-santa-sofia/"
+    },
+    {
+      "en": "/is-basilica-cistern-worth-it/",
+      "de": "/de/lohnt-sich-cisterna-basilica/",
+      "fr": "/fr/citerne-basilique-vaut-elle-le-coup/",
+      "es": "/es/merece-la-pena-cisterna-basilica/"
+    },
+    {
+      "en": "/hagia-sophia-friday-prayer-time/",
+      "de": "/de/hagia-sophia-freitagsgebet/",
+      "fr": "/fr/sainte-sophie-priere-vendredi/",
+      "es": "/es/santa-sofia-oracion-viernes/"
+    },
+    {
+      "en": "/hagia-sophia-from-galataport-cruise-port/",
+      "de": "/de/galataport-zur-hagia-sophia/",
+      "fr": "/fr/galataport-vers-sainte-sophie/",
+      "es": "/es/galataport-a-santa-sofia/"
+    },
+    {
+      "en": "/best-hagia-sophia-ticket/",
+      "de": "/de/welches-hagia-sophia-ticket/",
+      "fr": "/fr/quel-billet-sainte-sophie/",
+      "es": "/es/que-entrada-santa-sofia/"
+    },
+    {
+      "en": "/things-to-do-near-hagia-sophia/",
+      "de": "/de/sehenswuerdigkeiten-nahe-hagia-sophia/",
+      "fr": "/fr/que-faire-pres-sainte-sophie/",
+      "es": "/es/que-ver-cerca-santa-sofia/"
     }
   ]
 }

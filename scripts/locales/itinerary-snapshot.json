@@ -1,0 +1,53 @@
+{
+  "title": "Full day · about 7–9 hours",
+  "stops": [
+    {
+      "id": "topkapi",
+      "title": "Topkapi Palace",
+      "time": "Allow 2½–3½ hours",
+      "text": "Start early and use the entry or host meeting time on your ticket. The suggested IWC combo excludes Harem entry; buy it separately if wanted. Leave time for the courtyards and security.",
+      "href": "/combo-tickets/"
+    },
+    {
+      "id": "lunch",
+      "title": "Lunch & a walk through the square",
+      "time": "Allow 45–60 min",
+      "text": "Keep this break flexible. The routes between the main sights are short, but ticket collection and queues use more time than the walk.",
+      "href": "/one-day-sultanahmet-itinerary/"
+    },
+    {
+      "id": "arrival",
+      "title": "Ticket delivery & arrival",
+      "time": "Allow arrival time",
+      "text": "Save the emailed Hagia Sophia and Basilica Cistern entry QR codes. For Topkapi, follow the host meeting point and arrival time in your confirmation.",
+      "href": "#entrance-map"
+    },
+    {
+      "id": "hagia",
+      "title": "Hagia Sophia upper gallery",
+      "time": "Allow 45–60 min inside",
+      "text": "Keep extra time for security and the ramp. This paid visitor route does not include the ground-floor worship area.",
+      "href": "/hagia-sophia-upper-gallery/"
+    },
+    {
+      "id": "cistern",
+      "title": "Basilica Cistern",
+      "time": "Allow 45–60 min inside",
+      "text": "Allow roughly 5–10 minutes to walk from Hagia Sophia. Download any audio before going underground; use the session on your ticket.",
+      "href": "/basilica-cistern-opening-hours/"
+    },
+    {
+      "id": "square",
+      "title": "Sultanahmet Square",
+      "time": "Allow 15–20 min",
+      "text": "Finish with an exterior view of the Blue Mosque and a walk through the square. An interior mosque visit needs its own time allowance.",
+      "href": "#photo-guide"
+    }
+  ],
+  "notes": [
+    "Times are planning estimates, excluding unpredictable queues. Check opening hours, ticket sessions and any temporary closures for your date.",
+    "This is a busy day. Blue Mosque is an exterior stop; add an interior visit only if time and visitor hours allow. Splitting the three paid attractions over two days is more relaxed.",
+    "Basilica Cistern has separate day and evening sessions, with a published 18:30–19:30 visitor break. Do not assume a day ticket covers evening entry.",
+    "Add your visit date to flag Tuesday and Friday restrictions. Holiday and temporary closures are not checked automatically."
+  ]
+}

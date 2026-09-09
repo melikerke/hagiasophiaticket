@@ -4,9 +4,9 @@
   var language = (document.documentElement.lang || "en").slice(0, 2);
   var copy = {
     en: { title: "Your privacy choices", text: "We use optional analytics to understand visits and ticket clicks. Affiliate partners may pay us a commission at no extra cost to you.", accept: "Accept analytics", reject: "Reject", policy: "Cookie Policy" },
-    de: { title: "Deine Datenschutzauswahl", text: "Optionale Analytics helfen uns, Besuche und Ticketklicks zu verstehen. Affiliate-Partner koennen uns ohne Mehrkosten fuer dich eine Provision zahlen.", accept: "Analytics akzeptieren", reject: "Ablehnen", policy: "Cookie-Richtlinie" },
-    fr: { title: "Vos choix de confidentialite", text: "Les statistiques facultatives nous aident a comprendre les visites et les clics vers les billets. Les partenaires peuvent nous verser une commission sans cout supplementaire.", accept: "Accepter Analytics", reject: "Refuser", policy: "Politique de cookies" },
-    es: { title: "Tus opciones de privacidad", text: "Las estadisticas opcionales nos ayudan a entender las visitas y los clics de entradas. Los socios pueden pagarnos una comision sin coste adicional.", accept: "Aceptar Analytics", reject: "Rechazar", policy: "Politica de cookies" }
+    de: { title: "Deine Datenschutzauswahl", text: "Optionale Analytics helfen uns, Besuche und Ticketklicks zu verstehen. Affiliate-Partner können uns ohne Mehrkosten für dich eine Provision zahlen.", accept: "Analytics akzeptieren", reject: "Ablehnen", policy: "Cookie-Richtlinie" },
+    fr: { title: "Vos choix de confidentialité", text: "Les statistiques facultatives nous aident à comprendre les visites et les clics vers les billets. Les partenaires peuvent nous verser une commission sans coût supplémentaire.", accept: "Accepter Analytics", reject: "Refuser", policy: "Politique de cookies" },
+    es: { title: "Tus opciones de privacidad", text: "Las estadísticas opcionales nos ayudan a entender las visitas y los clics de entradas. Los socios pueden pagarnos una comisión sin coste adicional.", accept: "Aceptar Analytics", reject: "Rechazar", policy: "Política de cookies" }
   }[language] || null;
   if (!copy) copy = { title: "Your privacy choices", text: "We use optional analytics to understand visits and ticket clicks.", accept: "Accept analytics", reject: "Reject", policy: "Cookie Policy" };
 
@@ -522,7 +522,10 @@
         card.hidden = !(filterMatches && queryMatches);
         if (!card.hidden) visible += 1;
       });
-      if (status) status.textContent = visible + (visible === 1 ? " guide" : " guides") + " shown";
+      if (status) {
+        var countLabels = {de: " Reiseführer angezeigt", fr: " guides affichés", es: " guías disponibles"};
+        status.textContent = visible + (countLabels[language] || ((visible === 1 ? " guide" : " guides") + " shown"));
+      }
     }
 
     buttons.forEach(function (button) {
