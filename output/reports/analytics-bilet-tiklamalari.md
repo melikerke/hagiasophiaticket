@@ -16,6 +16,8 @@
 | `ticket_click_saver_combo` | Üç yapı + Boğaz turu + eSIM |
 | `ticket_click_dolmabahce_combo` | Dolmabahçe + Boğaz turu |
 | `ticket_click_bus_boat_combo` | İki günlük otobüs + tekne paketi |
+| `ticket_click_topkapi_audio` | Topkapı: görevliyle giriş ve sesli rehber (Harem hariç) |
+| `ticket_click_bosphorus_cruise` | Ayrı Boğaz turu |
 | `ticket_click_basilica_qr` | Planlayıcıdaki ayrı Yerebatan QR bileti |
 
 **Sayıları toplarken:** Bir IWC tıklaması hem `affiliate_click` toplamına hem ilgili ürün satırına girer. Bu iki satırı toplama. Birden fazla ürüne tıklayan kullanıcı, birden fazla ürün satırında yer alabilir; ürünlerin kullanıcı sayılarını toplamak benzersiz toplam kullanıcı sayısını vermez.

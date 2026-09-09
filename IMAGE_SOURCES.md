@@ -12,3 +12,5 @@ This file records licensed third-party images added to the site and the optimize
 The optimized WebP files have their source metadata stripped. Keep the original Shutterstock download and its account license record outside the public deployment.
 
 The September 2026 photo map also reuses the existing `blue-mosque-classic-view-640.webp` and `topkapi-palace-first-courtyard-640.webp` assets. The latter depicts the Gate of Salutation, not the Imperial Gate. The four photos identify landmarks; they are not verified current entrance-door photographs. The museum pickup marker remains text-only because no verified kiosk photo is available.
+
+The September 9 Topkapi guide visually rechecked both existing Topkapi photos. Both show the Gate of Salutation (Bâbüsselâm); `topkapi-palace-imperial-gate-*` is a historical filename, not the gate identity. New captions name the Gate of Salutation and do not claim a current supplier meeting point. The two-day itinerary reuses the owner-provided Sultanahmet skyline photo; no additional photo licence or simulated entrance image was introduced.

@@ -60,3 +60,13 @@ If the correct product no longer exists, remove its CTA and Offer schema until a
 The owner supplied the ITI5 product URL. In separate clean browser contexts, the linked product displayed EUR 28.45 with ITI5 and EUR 29.95 without a referral. Selecting 10 September 2026 retained EUR 28.45. The product description, Includes, How It Works and Cancellation Policy were read in the rendered public page. The listing advertises an entry QR emailed after booking with no pickup, a 10-language smartphone audio app, and free cancellation up to 24 hours before arrival. No purchase was made; the final payment total and actual post-purchase email delivery were not tested.
 
 Display EUR 28.45 as a starting price with a brief prompt to check current price and availability. At the owner’s request, keep ITI5, referral codes and referral-price mechanics out of visitor-facing copy, metadata and FAQ text. Preserve the exact referral destination and the price-check evidence in this maintenance record; do not make a universal lowest-price claim. Discount behavior was verified; commission attribution to the owner was not. Keep `hagia-sophia-entry` on the original GetYourGuide product: it remains the EUR 28 starting-price alternative requiring museum kiosk exchange. Do not inherit its audio/AR, delivery or cancellation terms for the email-QR product.
+
+## 9 September 2026 — Topkapi and content comparison review
+
+Rendered IWC product tabs confirmed:
+- `topkapi-palace-tickets`: starting EUR 56.91, short English orientation plus smartphone audio, hosted entry, Harem excluded, cancellation up to 24 hours.
+- `istanbul-vip-combo-ticket`: EUR 122.55, three main sights, Harem explicitly excluded, 48-hour cancellation.
+- `istanbul-saver-combo-ticket`: EUR 128.25, the three main sights plus 90-minute cruise and 3GB eSIM, Harem excluded, 48-hour cancellation. The reviewed instructions list 12:00 and 15:30 cruise departures; final confirmation controls the pier and sailing.
+- `bosphorus-cruise`: EUR 9.45, 90-minute standalone cruise with five-language audio; 24-hour cancellation. Do not assume the same pier, departure or audio as the combo cruise.
+
+The existing reviewed Hagia Sophia EUR 28.45 and Basilica Cistern EUR 47.41 prices give a three-sight standalone sum of EUR 132.77 with Topkapi; Old City Combo is EUR 10.22 below those starting prices. This comparison excludes Harem across both sides. A two-sight standalone sum is EUR 75.86, and a third sight is not silently added to that selection. These are adult starting-price examples, not completed purchase tests or verified live availability.

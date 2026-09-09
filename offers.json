@@ -118,7 +118,7 @@
         "notes": [
           "Smartphone audio guides in up to 10 languages; independent visits inside.",
           "The overview inconsistently mentions a host at every venue; the detailed How it works section specifies direct QR entry for Hagia Sophia and Basilica Cistern. Follow the final confirmation.",
-          "Harem inclusion is not independently confirmed; verify the selected option."
+          "The Included tab explicitly excludes the Topkapi Palace Harem; a separate ticket is required."
         ]
       },
       "priceReference": {
@@ -142,7 +142,7 @@
         "notes": [
           "Hagia Sophia, Basilica Cistern and Topkapi Palace, plus a 90-minute Bosphorus cruise and 3GB eSIM.",
           "Smartphone audio guides in up to 10 languages; not a full-day live guided tour.",
-          "Confirm eSIM device compatibility, cruise departure and Harem inclusion before booking."
+          "The Included tab explicitly excludes the Topkapi Palace Harem; a separate ticket is required."
         ]
       },
       "priceReference": {
@@ -217,6 +217,54 @@
         "condition": "Starting price observed on the owner-supplied referral URL on 9 September 2026. Final date, option and total must be confirmed before payment."
       },
       "expectedProductPath": "/shop/basilica-cistern-ticket"
+    },
+    "iwc-topkapi-audio": {
+      "provider": "istanbul-welcome-card",
+      "destinationUrl": "https://istanbulwelcomecard.com/shop/topkapi-palace-tickets?ref=iti5",
+      "expectedProductPath": "/shop/topkapi-palace-tickets",
+      "name": "Topkapi Palace Hosted Entry & Audio Guide",
+      "checkedAt": "2026-09-09",
+      "analyticsEvent": "ticket_click_topkapi_audio",
+      "priceReference": {
+        "amount": 56.91,
+        "currency": "EUR",
+        "condition": "Starting price observed on the owner-supplied referral URL on 9 September 2026; confirm date, option and final total before paying."
+      },
+      "terms": {
+        "cancellation": "The listing offers free cancellation up to 24 hours before arrival; confirm final booking terms.",
+        "fulfillment": "Meet the Istanbul Welcome Card host at the meeting point in the emailed confirmation. Hosted entry is followed by a short English orientation and independent audio-guided exploration.",
+        "security": "Mandatory security checks cannot be skipped.",
+        "validity": "Use the date and time in your confirmation; confirm flexibility before payment.",
+        "notes": [
+          "Harem is explicitly excluded.",
+          "A 15-minute welcome orientation and a 10-language smartphone audio guide are listed; this is not a full live guided tour.",
+          "Topkapi Palace is closed Tuesdays. Download the audio guide before arrival and bring headphones."
+        ]
+      }
+    },
+    "iwc-bosphorus-cruise": {
+      "provider": "istanbul-welcome-card",
+      "destinationUrl": "https://istanbulwelcomecard.com/shop/bosphorus-cruise?ref=iti5",
+      "expectedProductPath": "/shop/bosphorus-cruise",
+      "name": "Bosphorus Cruise & Audio Guide",
+      "checkedAt": "2026-09-09",
+      "analyticsEvent": "ticket_click_bosphorus_cruise",
+      "priceReference": {
+        "amount": 9.45,
+        "currency": "EUR",
+        "condition": "Starting price observed on the owner-supplied referral URL on 9 September 2026; confirm date, option and final total before paying."
+      },
+      "terms": {
+        "cancellation": "The listing offers free cancellation up to 24 hours before arrival; confirm final booking terms.",
+        "fulfillment": "Email confirmation gives the departure and pier near Dolmabahce. Present the confirmation at the IWC ticket window and arrive 15 minutes before departure.",
+        "security": "Mandatory security checks cannot be skipped.",
+        "validity": "Use the date and time in your confirmation; confirm flexibility before payment.",
+        "notes": [
+          "90-minute sightseeing cruise with five-language smartphone audio.",
+          "Transport to the pier, food and headphones are excluded.",
+          "This standalone cruise is not assumed to use the same departure, pier or audio as the Saver or bus-and-boat combo."
+        ]
+      }
     }
   }
 }

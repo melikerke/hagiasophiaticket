@@ -29,7 +29,7 @@ export function recommend(input) {
     hagia: { ids: ['hagia-sophia-email-qr'], summary: 'Upper-gallery entry with an emailed QR and a 10-language audio guide, without a collection stop.' },
     'hagia-blue': { ids: ['hagia-sophia-email-qr'], summary: 'Book Hagia Sophia entry and visit the Blue Mosque separately for free. The included audio guide is for Hagia Sophia; Blue Mosque audio is not included.' },
     'hagia-cistern': { ids: ['hagia-sophia-email-qr', 'iwc-basilica-email-qr'], summary: 'Two separate Istanbul Welcome Card bookings, each with emailed entry QR and smartphone audio. This avoids buying a three-site combo when you only want two attractions.' },
-    three: { ids: ['iwc-old-city-combo'], summary: 'Hagia Sophia, Basilica Cistern and Topkapi in one Istanbul Welcome Card booking. Explore with audio guides, with a host meeting required at Topkapi. Spread visits across three days if needed.' }
+    three: { ids: ['iwc-old-city-combo'], summary: 'Hagia Sophia, Basilica Cistern and Topkapi in one Istanbul Welcome Card booking. Explore with audio guides, with a host meeting required at Topkapi. Harem entry is excluded. Spread visits across three days if needed.' }
   };
   ids = options[sights].ids;
   summary = options[sights].summary;
@@ -55,7 +55,7 @@ const hagia = stop('hagia', 'Hagia Sophia upper gallery', 'Allow 45–60 min ins
 const square = stop('square', 'Sultanahmet Square', 'Allow 15–20 min', 'Finish with an exterior view of the Blue Mosque and a walk through the square. An interior mosque visit needs its own time allowance.', '#photo-guide');
 const cistern = stop('cistern', 'Basilica Cistern', 'Allow 45–60 min inside', 'Allow roughly 5–10 minutes to walk from Hagia Sophia. Download any audio before going underground; use the session on your ticket.', '/basilica-cistern-opening-hours/');
 const blue = stop('blue', 'Blue Mosque & a break', 'Allow 45–60 min', 'Walk back through the square, pause for a drink, and enter only during visitor hours. Admission is free; prayer closures and security can add waiting.', '/hagia-sophia-vs-blue-mosque/');
-const palace = stop('topkapi', 'Topkapi Palace', 'Allow 2½–3½ hours', 'Start early and use the entry or host meeting time on your ticket. Harem access depends on your option. Leave time for the courtyards and security.', '/combo-tickets/');
+const palace = stop('topkapi', 'Topkapi Palace', 'Allow 2½–3½ hours', 'Start early and use the entry or host meeting time on your ticket. The suggested IWC combo excludes Harem entry; buy it separately if wanted. Leave time for the courtyards and security.', '/combo-tickets/');
 const lunch = stop('lunch', 'Lunch & a walk through the square', 'Allow 45–60 min', 'Keep this break flexible. The routes between the main sights are short, but ticket collection and queues use more time than the walk.', '/one-day-sultanahmet-itinerary/');
 
 export function itinerary(input) {

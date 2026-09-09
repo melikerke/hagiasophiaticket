@@ -5,7 +5,6 @@
     "/cookie-policy/",
     "/affiliate-disclosure/",
     "/basilica-cistern-from-hagia-sophia/",
-    "/topkapi-palace-ticket/",
     "/sultanahmet-walking-tour/",
     "/de/reisefuehrer/",
     "/fr/guides/",
@@ -92,22 +91,75 @@
     "/es/que-ver-dentro-santa-sofia/": "/es/interior-santa-sofia/"
   },
   "deferredConsolidations": [
-    "/topkapi-palace-ticket-price/",
-    "/topkapi-palace-harem-guided-tour/",
     "/hagia-sophia-blue-mosque-basilica-cistern-tour/",
     "/hagia-sophia-topkapi-basilica-guided-tour/"
   ],
   "hreflangGroups": [
-    {"en":"/","de":"/de/","fr":"/fr/","es":"/es/"},
-    {"en":"/hagia-sophia-opening-hours/","de":"/de/hagia-sophia-oeffnungszeiten/","fr":"/fr/horaires-sainte-sophie/","es":"/es/horarios-santa-sofia/"},
-    {"en":"/hagia-sophia-ticket-price/","de":"/de/hagia-sophia-ticketpreis/","fr":"/fr/prix-billet-sainte-sophie/","es":"/es/precio-entrada-santa-sofia/"},
-    {"en":"/hagia-sophia-dress-code/","de":"/de/hagia-sophia-kleiderordnung/","fr":"/fr/tenue-sainte-sophie/","es":"/es/codigo-vestimenta-santa-sofia/"},
-    {"en":"/hagia-sophia-entrance-visitor-route/","de":"/de/hagia-sophia-eingang-besucherroute/","fr":"/fr/entree-parcours-visiteur-sainte-sophie/","es":"/es/entrada-recorrido-visitantes-santa-sofia/"},
-    {"en":"/how-long-does-hagia-sophia-take/","de":"/de/wie-lange-dauert-hagia-sophia/","fr":"/fr/combien-de-temps-sainte-sophie/","es":"/es/cuanto-tiempo-santa-sofia/"},
-    {"en":"/hagia-sophia-vs-blue-mosque/","de":"/de/hagia-sophia-oder-blaue-moschee/","fr":"/fr/sainte-sophie-ou-mosquee-bleue/","es":"/es/santa-sofia-o-mezquita-azul/"},
-    {"en":"/hagia-sophia-history/","de":"/de/hagia-sophia-geschichte/","fr":"/fr/histoire-sainte-sophie/","es":"/es/historia-santa-sofia/"},
-    {"en":"/hagia-sophia-interior-guide/","de":"/de/hagia-sophia-innenraum/","fr":"/fr/interieur-sainte-sophie/","es":"/es/interior-santa-sofia/"},
-    {"en":"/combo-tickets/","de":"/de/kombitickets/","fr":"/fr/billets-combines/","es":"/es/entradas-combinadas/"},
-    {"en":"/one-day-sultanahmet-itinerary/","de":"/de/sultanahmet-tagesroute/","fr":"/fr/itineraire-sultanahmet-une-journee/","es":"/es/itinerario-sultanahmet-un-dia/"}
+    {
+      "en": "/",
+      "de": "/de/",
+      "fr": "/fr/",
+      "es": "/es/"
+    },
+    {
+      "en": "/hagia-sophia-opening-hours/",
+      "de": "/de/hagia-sophia-oeffnungszeiten/",
+      "fr": "/fr/horaires-sainte-sophie/",
+      "es": "/es/horarios-santa-sofia/"
+    },
+    {
+      "en": "/hagia-sophia-ticket-price/",
+      "de": "/de/hagia-sophia-ticketpreis/",
+      "fr": "/fr/prix-billet-sainte-sophie/",
+      "es": "/es/precio-entrada-santa-sofia/"
+    },
+    {
+      "en": "/hagia-sophia-dress-code/",
+      "de": "/de/hagia-sophia-kleiderordnung/",
+      "fr": "/fr/tenue-sainte-sophie/",
+      "es": "/es/codigo-vestimenta-santa-sofia/"
+    },
+    {
+      "en": "/hagia-sophia-entrance-visitor-route/",
+      "de": "/de/hagia-sophia-eingang-besucherroute/",
+      "fr": "/fr/entree-parcours-visiteur-sainte-sophie/",
+      "es": "/es/entrada-recorrido-visitantes-santa-sofia/"
+    },
+    {
+      "en": "/how-long-does-hagia-sophia-take/",
+      "de": "/de/wie-lange-dauert-hagia-sophia/",
+      "fr": "/fr/combien-de-temps-sainte-sophie/",
+      "es": "/es/cuanto-tiempo-santa-sofia/"
+    },
+    {
+      "en": "/hagia-sophia-vs-blue-mosque/",
+      "de": "/de/hagia-sophia-oder-blaue-moschee/",
+      "fr": "/fr/sainte-sophie-ou-mosquee-bleue/",
+      "es": "/es/santa-sofia-o-mezquita-azul/"
+    },
+    {
+      "en": "/hagia-sophia-history/",
+      "de": "/de/hagia-sophia-geschichte/",
+      "fr": "/fr/histoire-sainte-sophie/",
+      "es": "/es/historia-santa-sofia/"
+    },
+    {
+      "en": "/hagia-sophia-interior-guide/",
+      "de": "/de/hagia-sophia-innenraum/",
+      "fr": "/fr/interieur-sainte-sophie/",
+      "es": "/es/interior-santa-sofia/"
+    },
+    {
+      "en": "/combo-tickets/",
+      "de": "/de/kombitickets/",
+      "fr": "/fr/billets-combines/",
+      "es": "/es/entradas-combinadas/"
+    },
+    {
+      "en": "/one-day-sultanahmet-itinerary/",
+      "de": "/de/sultanahmet-tagesroute/",
+      "fr": "/fr/itineraire-sultanahmet-une-journee/",
+      "es": "/es/itinerario-sultanahmet-un-dia/"
+    }
   ]
 }

@@ -110,6 +110,24 @@
     "event": "ticket_click_basilica_qr",
     "destination": "https://istanbulwelcomecard.com/shop/basilica-cistern-ticket?ref=iti5",
     "shortUrl": null
+  },
+  "iwc-topkapi-audio": {
+    "id": "iwc-topkapi-audio",
+    "product": "Topkapi Palace Hosted Entry & Audio Guide",
+    "price": 56.91,
+    "provider": "istanbul-welcome-card",
+    "event": "ticket_click_topkapi_audio",
+    "destination": "https://istanbulwelcomecard.com/shop/topkapi-palace-tickets?ref=iti5",
+    "shortUrl": null
+  },
+  "iwc-bosphorus-cruise": {
+    "id": "iwc-bosphorus-cruise",
+    "product": "Bosphorus Cruise & Audio Guide",
+    "price": 9.45,
+    "provider": "istanbul-welcome-card",
+    "event": "ticket_click_bosphorus_cruise",
+    "destination": "https://istanbulwelcomecard.com/shop/bosphorus-cruise?ref=iti5",
+    "shortUrl": null
   }
 };
 
@@ -486,7 +504,9 @@
 
     cards.forEach(function (card) {
       var text = (card.textContent + " " + (card.getAttribute("href") || "")).toLowerCase();
-      var category = /ticket|combo|price|queue/.test(text) ? "tickets"
+      var authoredCategory = card.getAttribute("data-guide-category");
+      var category = ["tickets", "visit", "inside", "nearby"].indexOf(authoredCategory) !== -1 ? authoredCategory
+        : /ticket|combo|price|queue/.test(text) ? "tickets"
         : /basilica|topkapi|blue mosque|near hagia|sultanahmet/.test(text) ? "nearby"
           : /history|interior|mosaic|architecture|gallery|photo/.test(text) ? "inside"
             : "visit";
