@@ -308,7 +308,9 @@ for j,l in enumerate(LANGS):
 
 # Add reciprocal alternates to English pages too, with equivalent-page language switching.
 for en,g in groups.items():
- s=soupfile(en);langlinks(s,en,'en');write(s,en)
+ s=soupfile(en);langlinks(s,en,'en')
+ for script in s.select('script[src^="/visit-tools.js"]'):script['src']='/visit-tools.js?v=20260909-languages'
+ write(s,en)
 policy['hreflangGroups']=list(groups.values())
 policy['temporaryNoindex']=[p for p in policy['temporaryNoindex'] if p not in {groups['/guides/'][l] for l in LANGS}]
 (ROOT/'recovery-index-policy.json').write_text(json.dumps(policy,ensure_ascii=False,indent=2)+'\n')
