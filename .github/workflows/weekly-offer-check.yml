@@ -6,6 +6,8 @@ on:
     paths:
       - "**/*.html"
       - "style.css"
+      - "home-v2.css"
+      - "visit-*"
       - "offers.json"
       - "scripts/**"
       - "recovery-index-policy.json"
@@ -15,6 +17,8 @@ on:
     paths:
       - "**/*.html"
       - "style.css"
+      - "home-v2.css"
+      - "visit-*"
       - "offers.json"
       - "scripts/**"
       - "recovery-index-policy.json"
@@ -43,8 +47,8 @@ jobs:
       - name: Validate local site and affiliate usage
         run: node scripts/validate-site.mjs
 
-      - name: Test consolidation safeguards
-        run: node --test scripts/consolidations.test.mjs
+      - name: Test consolidation and visit-planning safeguards
+        run: node --test scripts/*.test.mjs
 
       - name: Verify every affiliate short-link destination
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'

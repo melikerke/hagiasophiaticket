@@ -102,3 +102,14 @@ Track the three edited destination pages, indexing status and impressions before
 judging click-through rate at very low volume. Changes cannot guarantee recovery
 or establish which Google system caused the original loss. Avoid another broad
 URL or noindex migration while these changes are being assessed.
+
+## 9 September 2026: visit-planning tools
+
+- `/plan-your-visit/` combines the ticket selector, a schematic entrance/collection map, time-based itineraries, landmark photographs and a downloadable pocket guide. It is self-canonical; shared preference query strings canonicalize to the same page. Added the page to the sitemap and linked it from the homepage, guide directory, entrance guide and itinerary.
+- `visit-planner.mjs` owns preference validation, recommendation rules and route estimates. `visit-tools.js` renders existing offer templates and shareable applied preferences. No account, new tracker, location request or external map script is required. Affiliate links use the existing consent-aware click handler.
+- Offer templates in the new HTML use `offers.json` destinations and are tested against the registry. Preserve the owner-supplied entry starting price of EUR 28. It is not a live quote or a lowest-price guarantee. Full option terms retain their actual 7 August review date. Only the main listing's collection instructions and the cited visitor sources were rechecked on 9 September.
+- Route durations are editorial estimates. Tuesday removes Topkapi from the full-day route; Friday prompts explain the mosque restrictions. Holiday, temporary and live booking availability checks are not automatic. Routes honor selected paid sights; guided bookings explicitly follow the provider's itinerary.
+- The map is an orientation sketch, not surveyed navigation. Museum collection, the Hagia Sophia visitor area and other landmarks are separate; Google Maps links route to named locations, with on-site signage required for the final entrance approach.
+- The photo guide uses existing local assets and makes no claim that they depict current entrance arrangements. Stock replacements await the owner's licensed downloads; no unlicensed Shutterstock preview is deployed.
+- `scripts/build-visit-card.py` regenerates `output/pdf/hagia-sophia-visit-card.pdf` with ReportLab. The general pocket PDF is distinct from the browser's personalized print view. Inspect a rendered PDF after changing its content or layout.
+- Validation: `node scripts/validate-site.mjs` and `node --test scripts/*.test.mjs`. Browser QA covers 320/390/768/1440 widths, keyboard access, applied preference sharing, JS-disabled fallback, map links, print layout and download. Source restrictions are linked from the page.
