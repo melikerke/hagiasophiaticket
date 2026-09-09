@@ -3,6 +3,7 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { dirname, extname, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
+import { isWelcomeCardHost, welcomeCardUrlErrors } from "./offer-destinations.mjs";
 import { checkConsolidations } from "./consolidations.mjs";
 
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
@@ -95,43 +96,50 @@ for (const [offerId, offer] of offerEntries) {
   } else if (Number.isNaN(Date.parse(`${offer.checkedAt}T00:00:00Z`))) {
     addError(`${prefix}.checkedAt is not a real calendar date.`);
   }
-  if (!/^\d+$/.test(String(offer.expectedActivityId || ""))) {
-    addError(`${prefix}.expectedActivityId must contain digits only.`);
-  } else if (offersByActivityId.has(String(offer.expectedActivityId))) {
-    addError(`${prefix}: duplicate activity ID ${offer.expectedActivityId}.`);
+  const provider = offer.provider || "getyourguide";
+  if (!["getyourguide", "istanbul-welcome-card"].includes(provider)) addError(`${prefix}: unsupported provider ${provider}.`);
+  if (provider === "istanbul-welcome-card") {
+    welcomeCardUrlErrors(offer.destinationUrl).forEach(message => addError(`${prefix}: ${message}`));
   } else {
-    offersByActivityId.set(String(offer.expectedActivityId), offerId);
-  }
+    if (!/^\d+$/.test(String(offer.expectedActivityId || ""))) {
+      addError(`${prefix}.expectedActivityId must contain digits only.`);
+    } else if (offersByActivityId.has(String(offer.expectedActivityId))) {
+      addError(`${prefix}: duplicate activity ID ${offer.expectedActivityId}.`);
+    } else {
+      offersByActivityId.set(String(offer.expectedActivityId), offerId);
+    }
 
-  const shortMatch = String(offer.shortUrl || "").match(/^https:\/\/gyg\.me\/([A-Za-z0-9]+)$/);
-  if (!shortMatch) {
-    addError(`${prefix}.shortUrl must be a canonical https://gyg.me/<code> URL.`);
-  } else if (offersByShortCode.has(shortMatch[1])) {
-    addError(`${prefix}: duplicate short-link code ${shortMatch[1]}.`);
-  } else {
-    offersByShortCode.set(shortMatch[1], offerId);
-  }
+    const shortMatch = String(offer.shortUrl || "").match(/^https:\/\/gyg\.me\/([A-Za-z0-9]+)$/);
+    if (!shortMatch) {
+      addError(`${prefix}.shortUrl must be a canonical https://gyg.me/<code> URL.`);
+    } else if (offersByShortCode.has(shortMatch[1])) {
+      addError(`${prefix}: duplicate short-link code ${shortMatch[1]}.`);
+    } else {
+      offersByShortCode.set(shortMatch[1], offerId);
+    }
 
-  let destination;
-  try {
-    destination = new URL(offer.destinationUrl);
-  } catch {
-    addError(`${prefix}.destinationUrl is not a valid absolute URL.`);
-  }
-  if (destination) {
-    if (destination.protocol !== "https:" || !isGetYourGuideHost(destination.hostname)) {
-      addError(`${prefix}.destinationUrl must use HTTPS on getyourguide.com.`);
+    let destination;
+    try {
+      destination = new URL(offer.destinationUrl);
+    } catch {
+      addError(`${prefix}.destinationUrl is not a valid absolute URL.`);
     }
-    const destinationActivityId = activityIdFromUrl(destination);
-    if (destinationActivityId !== String(offer.expectedActivityId)) {
-      addError(`${prefix}.destinationUrl must contain -t${offer.expectedActivityId}.`);
+    if (destination) {
+      if (destination.protocol !== "https:" || !isGetYourGuideHost(destination.hostname)) {
+        addError(`${prefix}.destinationUrl must use HTTPS on getyourguide.com.`);
+      }
+      const destinationActivityId = activityIdFromUrl(destination);
+      if (destinationActivityId !== String(offer.expectedActivityId)) {
+        addError(`${prefix}.destinationUrl must contain -t${offer.expectedActivityId}.`);
+      }
+      if (destination.searchParams.get("partner_id") !== partnerId) {
+        addError(`${prefix}.destinationUrl must preserve partner_id=${partnerId}.`);
+      }
+      if (destination.searchParams.get("referral_redirect") !== referralRedirect) {
+        addError(`${prefix}.destinationUrl must preserve referral_redirect=${referralRedirect}.`);
+      }
     }
-    if (destination.searchParams.get("partner_id") !== partnerId) {
-      addError(`${prefix}.destinationUrl must preserve partner_id=${partnerId}.`);
-    }
-    if (destination.searchParams.get("referral_redirect") !== referralRedirect) {
-      addError(`${prefix}.destinationUrl must preserve referral_redirect=${referralRedirect}.`);
-    }
+
   }
 
   const terms = offer.terms;
@@ -201,8 +209,15 @@ function validateAffiliateUrl(rawUrl, context) {
   try {
     url = new URL(decoded);
   } catch {
-    addError(`${context}: malformed GetYourGuide URL: ${rawUrl}`);
+    addError(`${context}: malformed affiliate URL: ${rawUrl}`);
     return null;
+  }
+  if (isWelcomeCardHost(url.hostname)) {
+    welcomeCardUrlErrors(url.href).forEach(message => addError(`${context}: ${message}`));
+    const entry = offerEntries.find(([, offer]) => offer.provider === "istanbul-welcome-card" && offer.destinationUrl === url.href);
+    if (!entry) addError(`${context}: unregistered Istanbul Welcome Card destination; preserve the registered product and referral.`);
+    affiliateUrlCount += 1;
+    return entry?.[0] || null;
   }
   if (url.protocol !== "https:" || !isGetYourGuideHost(url.hostname)) {
     addError(`${context}: affiliate URL must use HTTPS on getyourguide.com.`);
@@ -312,7 +327,7 @@ function walkJsonLd(value, context) {
     } else {
       try {
         const url = new URL(decodeAttribute(value.url));
-        if (isGetYourGuideHost(url.hostname)) validateAffiliateUrl(value.url, `${context}.url`);
+        if (isGetYourGuideHost(url.hostname) || isWelcomeCardHost(url.hostname)) validateAffiliateUrl(value.url, `${context}.url`);
       } catch {
         addError(`${context}.url: malformed Offer URL ${value.url}`);
       }
@@ -349,14 +364,21 @@ for (const htmlFile of htmlFiles) {
     if (dataOfferId && !registry.offers[dataOfferId]) {
       addError(`${fileLabel}:${lineNumberAt(source, match.index)}: unknown data-offer-id="${dataOfferId}".`);
     }
-    if (!href || href.includes("gyg.me/")) continue;
+    if (!href || href.includes("gyg.me/")) {
+      if (dataOfferId && !href) addError(`${fileLabel}:${lineNumberAt(source, match.index)}: offer anchor requires an absolute destination URL.`);
+      continue;
+    }
     let url;
     try {
       url = new URL(href);
     } catch {
+      if (dataOfferId) addError(`${fileLabel}:${lineNumberAt(source, match.index)}: offer anchor requires a valid absolute destination URL.`);
       continue;
     }
-    if (!isGetYourGuideHost(url.hostname)) continue;
+    if (!isGetYourGuideHost(url.hostname) && !isWelcomeCardHost(url.hostname)) {
+      if (dataOfferId) addError(`${fileLabel}:${lineNumberAt(source, match.index)}: registered offer points outside supported providers.`);
+      continue;
+    }
     const context = `${fileLabel}:${lineNumberAt(source, match.index)}`;
     const matchedOfferId = validateAffiliateUrl(href, context);
     if (!dataOfferId) {
@@ -618,6 +640,16 @@ function validateIndexingSignals() {
 
 async function validateRemoteRedirects() {
   for (const [offerId, offer] of offerEntries) {
+    if (offer.provider === "istanbul-welcome-card") {
+      try {
+        const response = await fetch(offer.destinationUrl, { redirect: "follow", signal: AbortSignal.timeout(20000) });
+        const destinationErrors = welcomeCardUrlErrors(response.url);
+        if (!response.ok || destinationErrors.length) addError(`${offerId}: direct product URL check failed (HTTP ${response.status}): ${destinationErrors.join("; ")}`);
+        else console.log(`ok ${offerId}: direct product reachable; price and terms require a separate rendered-page review.`);
+        await response.body?.cancel();
+      } catch (error) { addError(`${offerId}: could not request direct product URL: ${error.message}`); }
+      continue;
+    }
     let response;
     try {
       response = await fetch(offer.shortUrl, {

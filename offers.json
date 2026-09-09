@@ -6,6 +6,31 @@
     "currency": "EUR"
   },
   "offers": {
+    "hagia-sophia-email-qr": {
+      "provider": "istanbul-welcome-card",
+      "destinationUrl": "https://istanbulwelcomecard.com/shop/hagia-sophia-tour?ref=iti5",
+      "name": "Hagia Sophia Ticket & Audio Guide — Email QR Entry",
+      "checkedAt": "2026-09-09",
+      "priceReference": {
+        "amount": 28.45,
+        "currency": "EUR",
+        "condition": "Starting price displayed through the supplied ITI5 referral link; confirm the selected date and final total before payment.",
+        "reviewedVisitDate": "2026-09-10"
+      },
+      "referralNote": "The site owner supplied ref=iti5. The discount was observed; commission attribution to the site owner has not been verified.",
+      "terms": {
+        "cancellation": "The product page states free cancellation up to 24 hours before arrival; confirm the final booking terms.",
+        "fulfillment": "The supplier advertises an instant entry QR code by email after booking, with audio-guide download instructions. No museum kiosk collection or paper ticket is required.",
+        "security": "Mandatory security screening cannot be skipped.",
+        "validity": "The listing describes a flexible visit day when Hagia Sophia is open to visitors. Choose a visit date and confirm the final ticket validity before paying.",
+        "notes": [
+          "Self-guided visit with a smartphone audio guide in 10 languages; bring headphones.",
+          "Download the audio guide before arrival. The listing specifies Android 10 or later, or a current iOS version.",
+          "The exact supplied ITI5 link displayed EUR 28.45; a clean browser without the referral displayed EUR 29.95 on 9 September 2026.",
+          "No live guide or History and Experience Museum admission is advertised as included."
+        ]
+      }
+    },
     "hagia-sophia-entry": {
       "shortUrl": "https://gyg.me/9TxDoMwH",
       "destinationUrl": "https://www.getyourguide.com/istanbul-l56/istanbul-hagia-sophia-skip-the-line-ticket-museum-option-t709111/?partner_id=UYM3DXX&referral_redirect=1",

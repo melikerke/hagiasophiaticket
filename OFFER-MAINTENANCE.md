@@ -1,11 +1,12 @@
 # Affiliate offer maintenance
 
-`offers.json` is the source of truth for every GetYourGuide activity used on the site. It records the legacy short link, the direct affiliate destination, the expected GetYourGuide activity ID, the last manual review date, and known booking terms.
+`offers.json` is the source of truth for ticket products linked on the site. GetYourGuide entries record a legacy short link and expected activity ID. The Istanbul Welcome Card entry uses an explicit provider and the owner-supplied direct product URL. All entries record the destination, last product review date and known booking terms.
 
 ## Rules
 
-- Production HTML and JSON-LD must use the registered direct `getyourguide.com` URL, never a `gyg.me` URL.
-- Every direct URL must contain `partner_id=UYM3DXX`, `referral_redirect=1`, and the registered `-t<ID>` activity ID.
+- GetYourGuide links in production HTML and JSON-LD must use the registered direct `getyourguide.com` URL, never a `gyg.me` URL.
+- Every GetYourGuide direct URL must contain `partner_id=UYM3DXX`, `referral_redirect=1`, and the registered `-t<ID>` activity ID.
+- Istanbul Welcome Card uses `provider: "istanbul-welcome-card"` and `https://istanbulwelcomecard.com/shop/hagia-sophia-tour?ref=iti5`. Preserve that exact reviewed product and referral. It has no GetYourGuide activity ID or short URL.
 - Every affiliate anchor must include the matching `data-offer-id`, `target="_blank"`, and `rel="noopener sponsored"`.
 - Product names, inclusions, fulfillment instructions, cancellation terms, visible prices, and structured data must describe the same selected activity option.
 - Do not describe ticket-line access as skipping mandatory security.
@@ -27,10 +28,12 @@ The validator checks:
 - every JSON-LD block parses as JSON;
 - no production HTML or JSON-LD contains legacy `gyg.me` URLs;
 - direct GetYourGuide URLs retain affiliate parameters and a known activity ID;
+- Istanbul Welcome Card links retain the reviewed product and exactly one `ref=iti5`;
+- registered offer anchors cannot cross providers or point at relative URLs;
 - affiliate anchors use the correct `data-offer-id`, `target`, and `rel` values;
 - the retired tariff PDF is absent.
 
-To verify the live short links against the expected activity IDs:
+To verify the live GetYourGuide short links against the expected activity IDs and check that the direct Istanbul Welcome Card product is reachable:
 
 ```sh
 node scripts/validate-site.mjs --redirects-only
@@ -43,11 +46,17 @@ The GitHub workflow runs local validation on relevant pull requests and runs bot
 Automated requests cannot reliably confirm option-level prices and terms on partner checkout pages. Once a week:
 
 1. Open each `destinationUrl` in `offers.json` in a normal browser.
-2. Confirm the target name and activity ID.
+2. Confirm the provider, target name and activity ID or exact product path.
 3. Select the exact option promoted on the site.
 4. Check the displayed EUR price, cancellation policy, validity, ticket delivery or collection method, meeting point, security limitation, guide type, languages, and inclusions.
-5. Update product cards, CTA microcopy, JSON-LD, and `offers.json` together.
+5. Update product cards, CTA microcopy, JSON-LD, `offers.json`, arrival guides, planner templates/logic, the downloadable visit card and analytics offer metadata together.
 6. Set `checkedAt` to the review date only after the live option has been checked.
 7. Run both validation commands.
 
 If the correct product no longer exists, remove its CTA and Offer schema until a replacement affiliate link has been created and reviewed. Never silently repoint an existing offer ID to a different visitor experience.
+
+## Email QR offer review — 9 September 2026
+
+The owner supplied the ITI5 product URL. In separate clean browser contexts, the linked product displayed EUR 28.45 with ITI5 and EUR 29.95 without a referral. Selecting 10 September 2026 retained EUR 28.45. The product description, Includes, How It Works and Cancellation Policy were read in the rendered public page. The listing advertises an entry QR emailed after booking with no pickup, a 10-language smartphone audio app, and free cancellation up to 24 hours before arrival. No purchase was made; the final payment total and actual post-purchase email delivery were not tested.
+
+Display the EUR 28.45 amount as a starting price through the linked ITI5 offer, not a universal lowest-price claim. Discount behavior was verified; commission attribution to the owner was not. Keep `hagia-sophia-entry` on the original GetYourGuide product: it remains the EUR 28 starting-price alternative requiring museum kiosk exchange. Do not inherit its audio/AR, delivery or cancellation terms for the email-QR product.

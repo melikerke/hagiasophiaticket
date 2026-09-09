@@ -27,7 +27,7 @@ export function recommend(input) {
   let ids, summary;
   if (style === 'self') {
     const options = {
-      hagia: ['hagia-sophia-entry', 'A straightforward upper-gallery visit at your own pace.'],
+      hagia: ['hagia-sophia-email-qr', 'Upper-gallery entry with an emailed QR and a 10-language audio guide, without a collection stop.'],
       'hagia-blue': ['hagia-blue-audio', 'Hagia Sophia admission with smartphone audio for both mosques. Blue Mosque admission itself is free.'],
       'hagia-cistern': ['hagia-cistern-topkapi-option', 'Two paid attractions in one booking. Select the Hagia Sophia + Basilica Cistern option; Topkapi is an optional extra.'],
       three: ['three-attraction-combo', 'A three-attraction ticket option. Allow a full day, or spread the visits over the validity period shown at checkout.']
@@ -59,7 +59,7 @@ export function recommend(input) {
 }
 
 const stop = (id, title, time, text, href) => ({ id, title, time, text, href });
-const arrival = stop('arrival', 'Ticket collection & arrival', 'Allow 15–30 min', 'For the main €28 starting-price offer, follow your visit-day code instructions at the History & Experience Museum kiosk. Other offers may use direct QR delivery or a guide meeting point.', '#entrance-map');
+const arrival = stop('arrival', 'Entry QR & arrival', 'Allow arrival time', 'Save the entry QR emailed by Istanbul Welcome Card after booking, then go to Hagia Sophia’s signed visitor entrance. No museum collection stop is needed for this ticket. Allow extra time for mandatory security.', '#entrance-map');
 const hagia = stop('hagia', 'Hagia Sophia upper gallery', 'Allow 45–60 min inside', 'Keep extra time for security and the ramp. This paid visitor route does not include the ground-floor worship area.', '/hagia-sophia-upper-gallery/');
 const square = stop('square', 'Sultanahmet Square', 'Allow 15–20 min', 'Finish with an exterior view of the Blue Mosque and a walk through the square. An interior mosque visit needs its own time allowance.', '#photo-guide');
 const cistern = stop('cistern', 'Basilica Cistern', 'Allow 45–60 min inside', 'Allow roughly 5–10 minutes to walk from Hagia Sophia. Download any audio before going underground; use the session on your ticket.', '/basilica-cistern-opening-hours/');
@@ -110,7 +110,7 @@ export function itinerary(input) {
     stops = stops.map(item => item.id === 'arrival' ? stop('arrival', 'Ticket delivery & arrival', 'Allow arrival time',
       style === 'guided'
         ? 'Use the meeting point and arrival time in your tour confirmation. Your guide’s route takes precedence over this self-directed plan.'
-        : 'Save the supplier entry QR and follow the instructions for your selected option. Check whether any timed host meeting is required; collection at the main offer’s museum kiosk is not a universal rule.', '#entrance-map') : item);
+        : 'Save the supplier entry QR and follow the delivery instructions for your selected option. Check whether any timed host meeting or collection is required before going to the entrance.', '#entrance-map') : item);
   }
   if (!date) notes.push('Add your visit date to flag Tuesday and Friday restrictions. Holiday and temporary closures are not checked automatically.');
   return { title, stops, notes };

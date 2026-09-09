@@ -588,3 +588,11 @@ header{position:sticky;top:0;z-index:1000}header .nav{position:relative;height:7
  .btn:hover,.mini-ticket:hover,.ticket:hover,.card:hover,.combo-card:hover,.cluster-card:hover,.highlight-card:hover,.money-link-card:hover,.decision-card:hover{transform:none}
  .ticket:hover .ticket-img img,.card:hover .guide-img,.combo-card:hover img,.highlight-card:hover img,.mini-ticket:hover img{transform:none}
 }
+
+/* Keep the ticket-delivery comparison readable on narrow phones. */
+.article.reviewed-guide{min-width:0;width:100%}
+.ticket-comparison-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+.ticket-comparison-scroll table{min-width:520px}
+.ticket-comparison-scroll:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.article .ticket-comparison-hint{display:none}
+@media(max-width:600px){.article .ticket-comparison-hint{display:block;color:var(--muted);font-size:13px}}

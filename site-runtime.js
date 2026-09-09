@@ -21,6 +21,7 @@
   var analyticsConsent = null;
   var analyticsLoading = false;
   var offers = {
+    "hagia-sophia-email-qr": { id: "hagia-sophia-email-qr", product: "Hagia Sophia Email QR Ticket", price: 28.45 },
     "9TxDoMwH": { id: "t709111", product: "Hagia Sophia Entry Ticket", price: 28 },
     "Y5QliR06": { id: "t597339", product: "Hagia Sophia Ticket and Blue Mosque Audio Guide", price: 30.49 },
     "x9grgdpi": { id: "t523484", product: "Basilica Cistern Fast-Track Entry and Audio Guide", price: 57.47 },
@@ -192,7 +193,7 @@
     var destinations = [
       { label: "Tickets", href: "/#tickets" },
       { label: "Combo Tickets", href: "/combo-tickets/" },
-      { label: "Visitor Info", href: "/#visitor-info" },
+      { label: "Plan your visit", href: "/plan-your-visit/" },
       { label: "Visitor Guides", href: "/guides/" }
     ];
     if (navigation) {

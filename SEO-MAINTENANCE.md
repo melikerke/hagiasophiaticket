@@ -1,5 +1,17 @@
 # Search recovery maintenance
 
+## Primary offer replaced with emailed entry QR, September 9, 2026
+
+The owner subsequently supplied the Istanbul Welcome Card ITI5 product link and
+chose its EUR 28.45 emailed entry QR as the primary recommendation. This supersedes
+the EUR 28 homepage positioning below. EUR 28 remains an explicitly described
+kiosk-collection alternative on its original GetYourGuide product ID. See
+OFFER-MAINTENANCE.md for the browser review and referral-price conditions.
+Homepage, English decision/price/arrival guides, the planner and the pocket PDF
+now distinguish the two delivery methods. No market-wide lowest-price claim or
+live inventory schema was added.
+
+
 ## Owner-supplied starting price, September 9, 2026
 
 The owner subsequently instructed us to display the €28 entry starting price.

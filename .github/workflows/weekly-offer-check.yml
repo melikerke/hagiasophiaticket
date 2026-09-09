@@ -8,6 +8,7 @@ on:
       - "style.css"
       - "home-v2.css"
       - "visit-*"
+      - "site-runtime.js"
       - "offers.json"
       - "scripts/**"
       - "recovery-index-policy.json"
@@ -19,6 +20,7 @@ on:
       - "style.css"
       - "home-v2.css"
       - "visit-*"
+      - "site-runtime.js"
       - "offers.json"
       - "scripts/**"
       - "recovery-index-policy.json"
@@ -47,9 +49,9 @@ jobs:
       - name: Validate local site and affiliate usage
         run: node scripts/validate-site.mjs
 
-      - name: Test consolidation and visit-planning safeguards
+      - name: Test site and ticket safeguards
         run: node --test scripts/*.test.mjs
 
-      - name: Verify every affiliate short-link destination
+      - name: Verify affiliate and direct product destinations
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: node scripts/validate-site.mjs --redirects-only

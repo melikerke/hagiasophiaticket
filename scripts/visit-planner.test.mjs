@@ -21,7 +21,7 @@ test('every preference combination has registered offers and a usable route', ()
 });
 
 test('one-attraction entry keeps the standalone offer; audio and live-guide matches differ', () => {
-  assert.deepEqual(recommend({ sights: 'hagia', style: 'self' }).ids, ['hagia-sophia-entry']);
+  assert.deepEqual(recommend({ sights: 'hagia', style: 'self' }).ids, ['hagia-sophia-email-qr']);
   assert.deepEqual(recommend({ sights: 'hagia-blue', style: 'self' }).ids, ['hagia-blue-audio']);
   assert.deepEqual(recommend({ sights: 'hagia-blue', style: 'guided' }).ids, ['blue-hagia-small-group']);
   assert.match(recommend({ sights: 'hagia-blue', style: 'self' }).summary, /free/);
@@ -69,7 +69,8 @@ test('arrival instructions follow the suggested delivery type', () => {
   assert.match(guided.text, /meeting point/);
   assert.doesNotMatch(guided.text, /€28/);
   const entry = itinerary({ sights: 'hagia', style: 'self' }).stops.find(s => s.id === 'arrival');
-  assert.match(entry.text, /kiosk/);
+  assert.match(entry.text, /entry QR emailed/);
+  assert.match(entry.text, /No museum collection stop/);
 });
 
 test('shared URL input is validated and weekday checks are timezone-independent', () => {
