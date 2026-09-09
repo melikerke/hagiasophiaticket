@@ -91,6 +91,12 @@
     "/fr/que-voir-dans-sainte-sophie/": "/fr/interieur-sainte-sophie/",
     "/es/que-ver-dentro-santa-sofia/": "/es/interior-santa-sofia/"
   },
+  "deferredConsolidations": [
+    "/topkapi-palace-ticket-price/",
+    "/topkapi-palace-harem-guided-tour/",
+    "/hagia-sophia-blue-mosque-basilica-cistern-tour/",
+    "/hagia-sophia-topkapi-basilica-guided-tour/"
+  ],
   "hreflangGroups": [
     {"en":"/","de":"/de/","fr":"/fr/","es":"/es/"},
     {"en":"/hagia-sophia-opening-hours/","de":"/de/hagia-sophia-oeffnungszeiten/","fr":"/fr/horaires-sainte-sophie/","es":"/es/horarios-santa-sofia/"},

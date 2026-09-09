@@ -195,6 +195,10 @@ section{padding:42px 0}
 .callout b{color:var(--accent)}
 .quick-answer{background:linear-gradient(135deg,var(--deep),var(--accent));color:#fff;border-radius:20px;padding:22px 24px;margin:0 0 22px}
 .quick-answer h2{color:#fff;margin:0 0 6px;font-size:20px}.quick-answer p{color:#fff;opacity:.95;margin:0}
+.article.reviewed-guide .quick-answer{display:block}
+.article.reviewed-guide .quick-answer::before{display:none}
+.article .quick-answer a.link{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.guide-byline{font-size:13px;line-height:1.6;color:var(--muted);margin:0 0 16px}
 .rating-box{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 22px;margin:22px 0;box-shadow:0 8px 22px rgba(34,48,60,.05)}
 .rating-box .big{font-family:Georgia,serif;font-size:40px;color:var(--accent)}
 .cta-band{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;display:flex;gap:18px;align-items:center;margin:26px 0;box-shadow:0 10px 26px rgba(34,48,60,.06)}

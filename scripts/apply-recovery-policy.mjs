@@ -3,6 +3,7 @@
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
+import { syncConsolidations } from "./consolidations.mjs";
 
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = resolve(scriptDirectory, "..");
@@ -280,6 +281,7 @@ let authorIdentities = 0;
 for (const filePath of htmlFiles) {
   const urlPath = urlPathFor(filePath);
   const original = readFileSync(filePath, "utf8");
+  if (consolidations.has(urlPath) && !policy.deferredConsolidations?.includes(urlPath)) continue;
   const railCount = (original.match(/\brail-cta\b/g) || []).length;
   const authorCount = (original.match(/"author":\{"@type":"Person","name":"Melike","jobTitle":"Founder & Editor"\}/g) || []).length;
   let source = replaceInternalConsolidationLinks(original);
@@ -324,9 +326,7 @@ for (const match of sitemap.matchAll(/<url><loc>([^<]+)<\/loc><lastmod>([^<]+)<\
   const filePath = urlPath === "/" ? resolve(repositoryRoot, "index.html") : resolve(repositoryRoot, urlPath.slice(1), "index.html");
   let source = readFileSync(filePath, "utf8");
   const schemaDates = [...source.matchAll(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})"/g)].map((dateMatch) => dateMatch[1]);
-  const desiredDate = materiallyUpdated.has(urlPath)
-    ? recoveryDate
-    : [match[2], ...schemaDates].sort().at(-1);
+  const desiredDate = [match[2], ...schemaDates, ...(materiallyUpdated.has(urlPath) ? [recoveryDate] : [])].sort().at(-1);
   if (schemaDates.length) {
     source = source.replace(/("dateModified"\s*:\s*")\d{4}-\d{2}-\d{2}("?)/g, `$1${desiredDate}$2`);
     writeFileSync(filePath, source);
@@ -339,8 +339,9 @@ sitemap = sitemap.replace(/(<url><loc>)([^<]+)(<\/loc><lastmod>)\d{4}-\d{2}-\d{2
 });
 writeFileSync(sitemapPath, sitemap.endsWith("\n") ? sitemap : `${sitemap}\n`);
 
-if (keptSitemapUrls !== 62) throw new Error(`Expected 62 indexable sitemap URLs; found ${keptSitemapUrls}`);
+if (!keptSitemapUrls) throw new Error("Recovery policy must not produce an empty sitemap");
+const consolidationResult = syncConsolidations(repositoryRoot);
 
 console.log(`Recovery policy applied to ${changedFiles} HTML files.`);
-console.log(`Index scope: ${keptSitemapUrls} sitemap URLs; ${noindexPaths.size} HTML URLs marked noindex (${removedSitemapUrls} removed from this sitemap run).`);
+console.log(`Index scope: ${keptSitemapUrls} sitemap URLs; ${consolidationResult.redirects} redirects; ${temporaryNoindex.size + consolidationResult.deferred} policy noindex URLs (${removedSitemapUrls} removed from this sitemap run).`);
 console.log(`Template cleanup: ${removedRails} duplicate rail CTAs removed; ${authorIdentities} author identities linked.`);

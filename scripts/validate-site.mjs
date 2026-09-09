@@ -3,6 +3,7 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { dirname, extname, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
+import { checkConsolidations } from "./consolidations.mjs";
 
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = resolve(scriptDirectory, "..");
@@ -410,6 +411,11 @@ for (const [activityId, offerId] of offersByActivityId) {
 }
 
 validateIndexingSignals();
+try {
+  checkConsolidations(repositoryRoot).forEach(addError);
+} catch (error) {
+  addError(`Consolidation policy: ${error.message}`);
+}
 
 finish(`Validated ${htmlFiles.length} HTML files, ${jsonLdCount} JSON-LD blocks, and ${affiliateUrlCount} direct affiliate URL occurrence(s).`);
 
