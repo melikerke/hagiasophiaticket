@@ -16,3 +16,15 @@ test('wrong products, providers and deceptive destinations are rejected', () => 
     assert.ok(welcomeCardUrlErrors(value).length, value);
   }
 });
+
+test('reviewed combo destinations must preserve the exact registered product', () => {
+  for (const slug of ['istanbul-vip-combo-ticket', 'istanbul-saver-combo-ticket', 'hop-on-hop-off-bus-and-boat-tour-in-istanbul', 'dolmabahce-palace-and-bosphorus-cruise', 'basilica-cistern-ticket']) {
+    const path = '/shop/' + slug;
+    const target = 'https://istanbulwelcomecard.com' + path + '?ref=iti5';
+    assert.deepEqual(welcomeCardUrlErrors(target, path), []);
+    assert.ok(welcomeCardUrlErrors(target, '/shop/hagia-sophia-tour').length);
+    assert.ok(welcomeCardUrlErrors(target.replace('iti5', 'other'), path).length);
+    assert.ok(welcomeCardUrlErrors(target + '&ref=iti5', path).length);
+  }
+  assert.ok(welcomeCardUrlErrors('https://istanbulwelcomecard.com/shop/combos?ref=iti5', '/shop/combos').length);
+});

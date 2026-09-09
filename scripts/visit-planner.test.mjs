@@ -20,18 +20,28 @@ test('every preference combination has registered offers and a usable route', ()
     }
 });
 
-test('one-attraction entry keeps the standalone offer; audio and live-guide matches differ', () => {
+test('free Blue Mosque entry does not add a second paid offer or promise its audio', () => {
   assert.deepEqual(recommend({ sights: 'hagia', style: 'self' }).ids, ['hagia-sophia-email-qr']);
-  assert.deepEqual(recommend({ sights: 'hagia-blue', style: 'self' }).ids, ['hagia-blue-audio']);
-  assert.deepEqual(recommend({ sights: 'hagia-blue', style: 'guided' }).ids, ['blue-hagia-small-group']);
-  assert.match(recommend({ sights: 'hagia-blue', style: 'self' }).summary, /free/);
+  const blue = recommend({ sights: 'hagia-blue', style: 'self' });
+  assert.deepEqual(blue.ids, ['hagia-sophia-email-qr']);
+  assert.match(blue.summary, /free/);
+  assert.match(blue.summary, /Blue Mosque audio is not included/);
 });
 
-test('a partial guided match clearly identifies separate bookings and the self-guided visit', () => {
-  const result = recommend({ sights: 'three', style: 'guided', duration: '8' });
-  assert.equal(result.ids.length, 2);
-  assert.match(result.summary, /self-guided Basilica/);
-  assert.match(result.summary, /two bookings/);
+test('two paid sights remain two separate bookings without an unwanted third attraction', () => {
+  const result = recommend({ sights: 'hagia-cistern', style: 'self' });
+  assert.deepEqual(result.ids, ['hagia-sophia-email-qr', 'iwc-basilica-email-qr']);
+  assert.match(result.summary, /Two separate/);
+});
+
+test('every guided preference explicitly discloses that only audio alternatives are available', () => {
+  for (const sights of preferences.sights) {
+    const result = recommend({ sights, style: 'guided' });
+    assert.match(result.summary, /No matching live guided tour/);
+    assert.match(result.summary, /self-guided alternatives/);
+    assert.ok(result.warnings.some(text => /not a live guide/.test(text)));
+    assert.ok(result.ids.every(id => registry[id].provider === 'istanbul-welcome-card'));
+  }
 });
 
 test('short plans flag overbooking and never route through three paid attractions', () => {
@@ -66,7 +76,10 @@ test('routes respect selected sights without inserting another paid attraction',
 
 test('arrival instructions follow the suggested delivery type', () => {
   const guided = itinerary({ sights: 'hagia', style: 'guided' }).stops.find(s => s.id === 'arrival');
-  assert.match(guided.text, /meeting point/);
+  assert.match(guided.text, /entry QR emailed/);
+  assert.ok(itinerary({ sights: 'hagia', style: 'guided' }).notes.some(text => /separate live tour/.test(text)));
+  const combo = itinerary({ sights: 'three' }).stops.find(s => s.id === 'arrival');
+  assert.match(combo.text, /Topkapi.*host meeting point/);
   assert.doesNotMatch(guided.text, /€28/);
   const entry = itinerary({ sights: 'hagia', style: 'self' }).stops.find(s => s.id === 'arrival');
   assert.match(entry.text, /entry QR emailed/);

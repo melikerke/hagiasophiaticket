@@ -25,26 +25,17 @@ export function recommend(input) {
   const { sights, style, duration, date } = normalizePlan(input);
   const warnings = [];
   let ids, summary;
-  if (style === 'self') {
-    const options = {
-      hagia: ['hagia-sophia-email-qr', 'Upper-gallery entry with an emailed QR and a 10-language audio guide, without a collection stop.'],
-      'hagia-blue': ['hagia-blue-audio', 'Hagia Sophia admission with smartphone audio for both mosques. Blue Mosque admission itself is free.'],
-      'hagia-cistern': ['hagia-cistern-topkapi-option', 'Two paid attractions in one booking. Select the Hagia Sophia + Basilica Cistern option; Topkapi is an optional extra.'],
-      three: ['three-attraction-combo', 'A three-attraction ticket option. Allow a full day, or spread the visits over the validity period shown at checkout.']
-    };
-    ids = [options[sights][0]];
-    summary = options[sights][1];
-  } else {
-    if (sights === 'three') {
-      ids = ['topkapi-hagia-small-group', 'basilica-audio'];
-      summary = 'A partial match: a live tour for Topkapi + Hagia Sophia, with a separate self-guided Basilica Cistern visit. These are two bookings, not one fully guided three-attraction tour.';
-    } else if (sights === 'hagia-cistern') {
-      ids = ['three-sights-guided'];
-      summary = 'This live tour covers Hagia Sophia and Basilica Cistern, and also includes a Blue Mosque stop. Confirm the selected option’s admission inclusions and duration.';
-    } else {
-      ids = ['blue-hagia-small-group'];
-      summary = 'A live guided visit covering Hagia Sophia and the Blue Mosque. Choose this if you want both stops; it is not a Hagia Sophia-only tour.';
-    }
+  const options = {
+    hagia: { ids: ['hagia-sophia-email-qr'], summary: 'Upper-gallery entry with an emailed QR and a 10-language audio guide, without a collection stop.' },
+    'hagia-blue': { ids: ['hagia-sophia-email-qr'], summary: 'Book Hagia Sophia entry and visit the Blue Mosque separately for free. The included audio guide is for Hagia Sophia; Blue Mosque audio is not included.' },
+    'hagia-cistern': { ids: ['hagia-sophia-email-qr', 'iwc-basilica-email-qr'], summary: 'Two separate Istanbul Welcome Card bookings, each with emailed entry QR and smartphone audio. This avoids buying a three-site combo when you only want two attractions.' },
+    three: { ids: ['iwc-old-city-combo'], summary: 'Hagia Sophia, Basilica Cistern and Topkapi in one Istanbul Welcome Card booking. Explore with audio guides, with a host meeting required at Topkapi. Spread visits across three days if needed.' }
+  };
+  ids = options[sights].ids;
+  summary = options[sights].summary;
+  if (style === 'guided') {
+    summary = 'No matching live guided tour is listed in our reviewed Istanbul Welcome Card selection. These are self-guided alternatives: ' + summary;
+    warnings.push('These suggestions use audio guides. A Topkapi entry host is not a live guide for the full visit. If a live guide is essential, confirm a separate guided product before booking.');
   }
   if (duration === '2' && (sights !== 'hagia' || style === 'guided')) {
     warnings.push('With only two hours, prioritise one attraction. These multi-stop options may not fit; check the full duration before booking.');
@@ -105,13 +96,11 @@ export function itinerary(input) {
     if (duration === '8') notes.push('Aim for Hagia Sophia after 14:30; adjust your lunch and ticket collection around the actual reopening.');
   }
   if (duration !== '2' && withCistern) notes.push('Basilica Cistern has separate day and evening sessions, with a published 18:30–19:30 visitor break. Do not assume a day ticket covers evening entry.');
-  if (style === 'guided') notes.push('This is a self-directed route idea. A guided booking uses its own meeting point, duration and stop order; follow your tour confirmation.');
-  if (sights !== 'hagia' || style !== 'self') {
+  if (sights === 'three') {
     stops = stops.map(item => item.id === 'arrival' ? stop('arrival', 'Ticket delivery & arrival', 'Allow arrival time',
-      style === 'guided'
-        ? 'Use the meeting point and arrival time in your tour confirmation. Your guide’s route takes precedence over this self-directed plan.'
-        : 'Save the supplier entry QR and follow the delivery instructions for your selected option. Check whether any timed host meeting or collection is required before going to the entrance.', '#entrance-map') : item);
+      'Save the emailed Hagia Sophia and Basilica Cistern entry QR codes. For Topkapi, follow the host meeting point and arrival time in your confirmation.', '#entrance-map') : item);
   }
+  if (style === 'guided') notes.push('The ticket suggestions are self-guided alternatives. If you book a separate live tour, follow its confirmed route and meeting point.');
   if (!date) notes.push('Add your visit date to flag Tuesday and Friday restrictions. Holiday and temporary closures are not checked automatically.');
   return { title, stops, notes };
 }

@@ -596,3 +596,9 @@ header{position:sticky;top:0;z-index:1000}header .nav{position:relative;height:7
 .ticket-comparison-scroll:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 .article .ticket-comparison-hint{display:none}
 @media(max-width:600px){.article .ticket-comparison-hint{display:block;color:var(--muted);font-size:13px}}
+
+/* Four reviewed supplier packages, with enough room for the delivery terms. */
+.iwc-combo-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-block:24px}
+.iwc-combo-grid .combo-bottom{flex-wrap:wrap}
+.iwc-combo-grid .combo-body h3{line-height:1.25}
+@media(max-width:740px){.iwc-combo-grid{grid-template-columns:minmax(0,1fr)}}

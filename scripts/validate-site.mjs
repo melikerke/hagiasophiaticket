@@ -99,7 +99,7 @@ for (const [offerId, offer] of offerEntries) {
   const provider = offer.provider || "getyourguide";
   if (!["getyourguide", "istanbul-welcome-card"].includes(provider)) addError(`${prefix}: unsupported provider ${provider}.`);
   if (provider === "istanbul-welcome-card") {
-    welcomeCardUrlErrors(offer.destinationUrl).forEach(message => addError(`${prefix}: ${message}`));
+    welcomeCardUrlErrors(offer.destinationUrl, offer.expectedProductPath).forEach(message => addError(`${prefix}: ${message}`));
   } else {
     if (!/^\d+$/.test(String(offer.expectedActivityId || ""))) {
       addError(`${prefix}.expectedActivityId must contain digits only.`);
@@ -213,8 +213,8 @@ function validateAffiliateUrl(rawUrl, context) {
     return null;
   }
   if (isWelcomeCardHost(url.hostname)) {
-    welcomeCardUrlErrors(url.href).forEach(message => addError(`${context}: ${message}`));
     const entry = offerEntries.find(([, offer]) => offer.provider === "istanbul-welcome-card" && offer.destinationUrl === url.href);
+    welcomeCardUrlErrors(url.href, entry?.[1].expectedProductPath).forEach(message => addError(`${context}: ${message}`));
     if (!entry) addError(`${context}: unregistered Istanbul Welcome Card destination; preserve the registered product and referral.`);
     affiliateUrlCount += 1;
     return entry?.[0] || null;
@@ -643,7 +643,7 @@ async function validateRemoteRedirects() {
     if (offer.provider === "istanbul-welcome-card") {
       try {
         const response = await fetch(offer.destinationUrl, { redirect: "follow", signal: AbortSignal.timeout(20000) });
-        const destinationErrors = welcomeCardUrlErrors(response.url);
+        const destinationErrors = welcomeCardUrlErrors(response.url, offer.expectedProductPath);
         if (!response.ok || destinationErrors.length) addError(`${offerId}: direct product URL check failed (HTTP ${response.status}): ${destinationErrors.join("; ")}`);
         else console.log(`ok ${offerId}: direct product reachable; price and terms require a separate rendered-page review.`);
         await response.body?.cancel();

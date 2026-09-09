@@ -21,18 +21,97 @@
   var analyticsConsent = null;
   var analyticsLoading = false;
   var offers = {
-    "hagia-sophia-email-qr": { id: "hagia-sophia-email-qr", product: "Hagia Sophia Email QR Ticket", price: 28.45 },
-    "9TxDoMwH": { id: "t709111", product: "Hagia Sophia Entry Ticket", price: 28 },
-    "Y5QliR06": { id: "t597339", product: "Hagia Sophia Ticket and Blue Mosque Audio Guide", price: 30.49 },
-    "x9grgdpi": { id: "t523484", product: "Basilica Cistern Fast-Track Entry and Audio Guide", price: 57.47 },
-    "wn0Aj9s6": { id: "t1231414", product: "Topkapi Palace Entry Self-Guided Experience", price: 69.95 },
-    "aumuVrOk": { id: "t713788", product: "Hagia Sophia and Basilica Cistern Combo", price: 85 },
-    "fI4B3R9A": { id: "t948206", product: "Hagia Sophia, Basilica Cistern and Topkapi Palace Combo", price: 142 },
-    "n4qq65P8": { id: "t794467", product: "Hagia Sophia and Blue Mosque Small-Group Guided Tour", price: 54.28 },
-    "SmBh7lVw": { id: "t127010", product: "Topkapi Palace and Harem Guided Tour", price: 107.10 },
-    "k8iuljcs": { id: "t1051517", product: "Hagia Sophia, Blue Mosque and Basilica Cistern Tour", price: 122.55 },
-    "IDOlO7yX": { id: "t176826", product: "Small-Group Topkapi Palace and Hagia Sophia Tour", price: 234 }
-  };
+  "hagia-sophia-email-qr": {
+    "id": "hagia-sophia-email-qr",
+    "product": "Hagia Sophia Ticket & Audio Guide — Email QR Entry",
+    "price": 28.45,
+    "provider": "istanbul-welcome-card",
+    "event": "ticket_click_hagia_qr",
+    "destination": "https://istanbulwelcomecard.com/shop/hagia-sophia-tour?ref=iti5",
+    "shortUrl": null
+  },
+  "hagia-sophia-entry": {
+    "id": "t709111",
+    "product": "Istanbul: Hagia Sophia Skip-the-Line Ticket & Museum Option",
+    "price": 28,
+    "provider": "getyourguide",
+    "event": null,
+    "destination": "https://www.getyourguide.com/istanbul-l56/istanbul-hagia-sophia-skip-the-line-ticket-museum-option-t709111/?partner_id=UYM3DXX&referral_redirect=1",
+    "shortUrl": "https://gyg.me/9TxDoMwH"
+  },
+  "basilica-audio": {
+    "id": "t523484",
+    "product": "Istanbul: Basilica Cistern Fast-Track Entry and Audio Guide",
+    "price": 57.47,
+    "provider": "getyourguide",
+    "event": null,
+    "destination": "https://www.getyourguide.com/istanbul-l56/istanbul-basilica-cistern-fast-track-entry-and-audio-guide-t523484/?partner_id=UYM3DXX&referral_redirect=1",
+    "shortUrl": "https://gyg.me/x9grgdpi"
+  },
+  "topkapi-self-guided": {
+    "id": "t1231414",
+    "product": "Istanbul: Topkapi Palace Entry & Self-Guided Experience",
+    "price": 69.95,
+    "provider": "getyourguide",
+    "event": null,
+    "destination": "https://www.getyourguide.com/istanbul-l56/istanbul-topkapi-palace-entry-self-guided-experience-t1231414/?partner_id=UYM3DXX&referral_redirect=1",
+    "shortUrl": "https://gyg.me/wn0Aj9s6"
+  },
+  "topkapi-harem-guided": {
+    "id": "t127010",
+    "product": "Istanbul: Topkapi Palace and Harem Guided Tour with Ticket",
+    "price": 107.1,
+    "provider": "getyourguide",
+    "event": null,
+    "destination": "https://www.getyourguide.com/istanbul-l56/istanbul-topkapi-palace-harem-tour-including-entry-ticket-t127010/?partner_id=UYM3DXX&referral_redirect=1",
+    "shortUrl": "https://gyg.me/SmBh7lVw"
+  },
+  "iwc-old-city-combo": {
+    "id": "iwc-old-city-combo",
+    "product": "Hagia Sophia, Basilica Cistern & Topkapi Combo",
+    "price": 122.55,
+    "provider": "istanbul-welcome-card",
+    "event": "ticket_click_old_city_combo",
+    "destination": "https://istanbulwelcomecard.com/shop/istanbul-vip-combo-ticket?ref=iti5",
+    "shortUrl": null
+  },
+  "iwc-saver-combo": {
+    "id": "iwc-saver-combo",
+    "product": "Saver Combo: Three Sights, Cruise & eSIM",
+    "price": 128.25,
+    "provider": "istanbul-welcome-card",
+    "event": "ticket_click_saver_combo",
+    "destination": "https://istanbulwelcomecard.com/shop/istanbul-saver-combo-ticket?ref=iti5",
+    "shortUrl": null
+  },
+  "iwc-bus-boat-combo": {
+    "id": "iwc-bus-boat-combo",
+    "product": "Two-Day Hop-on Hop-off Bus & Bosphorus Cruise",
+    "price": null,
+    "provider": "istanbul-welcome-card",
+    "event": "ticket_click_bus_boat_combo",
+    "destination": "https://istanbulwelcomecard.com/shop/hop-on-hop-off-bus-and-boat-tour-in-istanbul?ref=iti5",
+    "shortUrl": null
+  },
+  "iwc-dolmabahce-combo": {
+    "id": "iwc-dolmabahce-combo",
+    "product": "Dolmabahce Palace & Bosphorus Cruise",
+    "price": 47.5,
+    "provider": "istanbul-welcome-card",
+    "event": "ticket_click_dolmabahce_combo",
+    "destination": "https://istanbulwelcomecard.com/shop/dolmabahce-palace-and-bosphorus-cruise?ref=iti5",
+    "shortUrl": null
+  },
+  "iwc-basilica-email-qr": {
+    "id": "iwc-basilica-email-qr",
+    "product": "Basilica Cistern Email QR & Audio Guide",
+    "price": 47.41,
+    "provider": "istanbul-welcome-card",
+    "event": "ticket_click_basilica_qr",
+    "destination": "https://istanbulwelcomecard.com/shop/basilica-cistern-ticket?ref=iti5",
+    "shortUrl": null
+  }
+};
 
   function ensureGtag() {
     window.dataLayer = window.dataLayer || [];
@@ -147,6 +226,11 @@
   }
 
   function placement(link) {
+    var explicit = link.closest("[data-button-position]");
+    var label = explicit ? explicit.getAttribute("data-button-position") : "";
+    if (/^[a-z0-9_-]{1,40}$/.test(label)) return label;
+    if (link.closest(".v2-ticket-card")) return "homepage_ticket_card";
+    if (link.closest(".v2-nearby-card")) return "homepage_nearby";
     if (link.closest("header")) return "header";
     if (link.closest(".buybar")) return "sticky_buy_bar";
     if (link.closest(".combo-card")) return "combo_card";
@@ -173,7 +257,7 @@
     var index;
     for (index = 0; index < keys.length; index += 1) {
       var candidate = offers[keys[index]];
-      if (dataOffer === keys[index] || dataOffer === candidate.id || href.indexOf(keys[index]) !== -1 || href.indexOf(candidate.id) !== -1) {
+      if (dataOffer === keys[index] || dataOffer === candidate.id || href === candidate.destination || href === candidate.shortUrl || href.indexOf(candidate.id) !== -1) {
         token = keys[index];
         offer = candidate;
         break;
@@ -182,6 +266,8 @@
     return {
       code: token || dataOffer || "unknown",
       id: offer ? offer.id : dataOffer || "unknown",
+      provider: offer ? offer.provider : "unknown",
+      event: offer ? offer.event : null,
       product: dataProduct || (offer ? offer.product : dataOffer || "Affiliate ticket"),
       price: !isNaN(dataPrice) ? dataPrice : offer ? offer.price : 0
     };
@@ -501,25 +587,32 @@
     }
   }
 
-  document.addEventListener("click", function (event) {
+  function trackAffiliateClick(event) {
+    if (event.type === "auxclick" && event.button !== 1) return;
+    if (event.type === "click" && event.button > 0) return;
+    if (!event.target || typeof event.target.closest !== "function") return;
     var link = event.target.closest('a[rel~="sponsored"], a[data-offer-id], a[data-offer], [data-offer-id] a, [data-offer] a');
-    if (!link) return;
+    if (!link || analyticsConsent !== "granted" || typeof window.gtag !== "function") return;
     var offer = affiliateOffer(link);
-    if (analyticsConsent === "granted" && typeof window.gtag === "function") {
-      window.gtag("event", "affiliate_click", {
-        product: offer.product,
-        price: offer.price,
-        value: offer.price,
-        offer_code: offer.code,
-        offer_id: offer.id,
-        currency: "EUR",
-        language: language,
-        page: location.pathname,
-        button_position: placement(link),
-        transport_type: "beacon"
-      });
-    }
-  });
+    var parameters = {
+      product: offer.product,
+      offer_code: offer.code,
+      offer_id: offer.id,
+      provider: offer.provider,
+      currency: "EUR",
+      language: language,
+      page: location.pathname,
+      button_position: placement(link),
+      transport_type: "beacon"
+    };
+    // An outbound click is not a purchase. Do not assign revenue or conversion value.
+    if (typeof offer.price === "number" && offer.price > 0) parameters.price = offer.price;
+    window.gtag("event", "affiliate_click", parameters);
+    // Bounded product names work in the standard Events report without custom dimensions.
+    if (offer.event) window.gtag("event", offer.event, Object.assign({}, parameters));
+  }
+  document.addEventListener("click", trackAffiliateClick);
+  document.addEventListener("auxclick", trackAffiliateClick);
 
   document.addEventListener("click", function (event) {
     var link = event.target.closest("a[data-social-platform]");

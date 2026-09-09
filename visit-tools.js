@@ -1,4 +1,4 @@
-import { normalizePlan, recommend, itinerary } from './visit-planner.mjs?v=20260909-qr';
+import { normalizePlan, recommend, itinerary } from './visit-planner.mjs?v=20260909-combos';
 
 const form = document.querySelector('#visit-preferences');
 const ticketResult = document.querySelector('#ticket-result');

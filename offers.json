@@ -29,7 +29,9 @@
           "The exact supplied ITI5 link displayed EUR 28.45; a clean browser without the referral displayed EUR 29.95 on 9 September 2026.",
           "No live guide or History and Experience Museum admission is advertised as included."
         ]
-      }
+      },
+      "analyticsEvent": "ticket_click_hagia_qr",
+      "expectedProductPath": "/shop/hagia-sophia-tour"
     },
     "hagia-sophia-entry": {
       "shortUrl": "https://gyg.me/9TxDoMwH",
@@ -46,24 +48,6 @@
           "Upper-gallery visitor access only; the ground floor is reserved for worship.",
           "Audio commentary in 23 languages and an AR experience are included in the listed mosque-ticket option.",
           "Children under 8 enter free when valid proof of age is presented."
-        ]
-      }
-    },
-    "hagia-blue-audio": {
-      "shortUrl": "https://gyg.me/Y5QliR06",
-      "destinationUrl": "https://www.getyourguide.com/istanbul-l56/hagia-sophia-skip-the-line-ticket-blue-mosque-audio-guide-t597339/?partner_id=UYM3DXX&referral_redirect=1",
-      "expectedActivityId": "597339",
-      "name": "Hagia Sophia Skip-the-Line Ticket & Blue Mosque Audio Guide",
-      "checkedAt": "2026-08-07",
-      "terms": {
-        "cancellation": "Free cancellation up to 24 hours before the activity for a full refund.",
-        "fulfillment": "Supplier QR tickets are normally emailed after 18:00 on the day before the visit; same-day bookings are sent after booking. The GetYourGuide voucher itself is not the entry ticket.",
-        "security": "Mandatory security checks at the attractions cannot be skipped.",
-        "validity": "Valid for 1-2 days depending on the selected option.",
-        "notes": [
-          "Audio guides run on the visitor's charged smartphone; bring headphones.",
-          "Blue Mosque entry is free; this offer supplies its audio guide.",
-          "A Basilica Cistern ticket is included only when that upgrade is selected."
         ]
       }
     },
@@ -102,59 +86,6 @@
         ]
       }
     },
-    "hagia-cistern-topkapi-option": {
-      "shortUrl": "https://gyg.me/aumuVrOk",
-      "destinationUrl": "https://www.getyourguide.com/istanbul-l56/basilica-cistern-hagia-sophia-with-optional-topkapi-palace-t713788/?partner_id=UYM3DXX&referral_redirect=1",
-      "expectedActivityId": "713788",
-      "name": "Basilica Cistern & Hagia Sophia with Optional Topkapi Palace",
-      "checkedAt": "2026-08-07",
-      "terms": {
-        "cancellation": "Confirm the selected option's cancellation terms at checkout.",
-        "fulfillment": "Hagia Sophia and Basilica Cistern tickets are emailed one day before the selected date. The optional Topkapi Palace visit requires meeting a host at the stated meeting point.",
-        "security": "Mandatory security queues cannot be skipped and may take up to 30 minutes in high season.",
-        "validity": "Hagia Sophia and Basilica Cistern tickets are flexible within the time window stated by the supplier; Topkapi Palace uses hosted entry when selected.",
-        "notes": [
-          "Topkapi Palace is optional and is not a live guided tour.",
-          "Current product notes state that there is no Basilica Cistern audio guide, Hagia Sophia audio is English-only, and the optional Topkapi audio guide is offered in six languages.",
-          "Topkapi Palace is closed on Tuesdays."
-        ]
-      }
-    },
-    "three-attraction-combo": {
-      "shortUrl": "https://gyg.me/fI4B3R9A",
-      "destinationUrl": "https://www.getyourguide.com/istanbul-l56/basilica-cistern-topkapi-palace-hagia-sophia-combo-tickets-t948206/?partner_id=UYM3DXX&referral_redirect=1",
-      "expectedActivityId": "948206",
-      "name": "Basilica Cistern, Topkapi Palace & Hagia Sophia Combo Tickets",
-      "checkedAt": "2026-08-07",
-      "terms": {
-        "cancellation": "Free cancellation up to 24 hours before the activity for a full refund.",
-        "fulfillment": "Hagia Sophia and Basilica Cistern tickets are emailed one day before the visit. Topkapi Palace and Harem require meeting a host for a timed entry.",
-        "security": "Mandatory security queues cannot be skipped and may take up to 30 minutes in high season.",
-        "validity": "Valid for 3 days from first use; Topkapi Palace still requires a hosted time slot.",
-        "notes": [
-          "Topkapi Palace and Harem Section entry are included in the listed base option.",
-          "Current product notes list a six-language audio guide for Topkapi, English-only audio for Hagia Sophia, and no Basilica Cistern audio guide.",
-          "Topkapi Palace is closed on Tuesdays."
-        ]
-      }
-    },
-    "blue-hagia-small-group": {
-      "shortUrl": "https://gyg.me/n4qq65P8",
-      "destinationUrl": "https://www.getyourguide.com/istanbul-l56/istanbul-blue-mosque-hagia-sophia-small-group-guided-tour-t794467/?partner_id=UYM3DXX&referral_redirect=1",
-      "expectedActivityId": "794467",
-      "name": "Istanbul: Blue Mosque & Hagia Sophia Small-Group Guided Tour",
-      "checkedAt": "2026-08-07",
-      "terms": {
-        "cancellation": "Confirm the selected option's cancellation terms at checkout.",
-        "fulfillment": "Meet the live guide at the meeting point shown for the selected option.",
-        "security": "Any ticket-line benefit does not remove mandatory security controls.",
-        "validity": "Guided tour on the selected date and start time.",
-        "notes": [
-          "The target activity covers both the Blue Mosque and Hagia Sophia; do not describe it only as a generic Old City walk.",
-          "Confirm included admission tickets, guide language, group size, and meeting point at checkout."
-        ]
-      }
-    },
     "topkapi-harem-guided": {
       "shortUrl": "https://gyg.me/SmBh7lVw",
       "destinationUrl": "https://www.getyourguide.com/istanbul-l56/istanbul-topkapi-palace-harem-tour-including-entry-ticket-t127010/?partner_id=UYM3DXX&referral_redirect=1",
@@ -173,41 +104,119 @@
         ]
       }
     },
-    "three-sights-guided": {
-      "shortUrl": "https://gyg.me/k8iuljcs",
-      "destinationUrl": "https://www.getyourguide.com/istanbul-l56/istanbul-blue-mosque-hagia-sophia-basilica-cistern-tour-t1051517/?partner_id=UYM3DXX&referral_redirect=1",
-      "expectedActivityId": "1051517",
-      "name": "Istanbul: Blue Mosque, Hagia Sophia & Basilica Cistern Tour",
-      "checkedAt": "2026-08-07",
+    "iwc-old-city-combo": {
+      "provider": "istanbul-welcome-card",
+      "destinationUrl": "https://istanbulwelcomecard.com/shop/istanbul-vip-combo-ticket?ref=iti5",
+      "name": "Hagia Sophia, Basilica Cistern & Topkapi Combo",
+      "checkedAt": "2026-09-09",
+      "analyticsEvent": "ticket_click_old_city_combo",
       "terms": {
-        "cancellation": "Confirm the selected option's cancellation terms at checkout.",
-        "fulfillment": "Meet the live guide at the meeting point shown for the selected option.",
-        "security": "Any ticket-line benefit does not remove mandatory security controls.",
-        "validity": "Guided tour on the selected date and start time.",
+        "cancellation": "Free cancellation up to 48 hours before the visit according to the product page; confirm final booking terms.",
+        "fulfillment": "Hagia Sophia and Basilica Cistern entry QR codes by email; Topkapi requires a host meeting.",
+        "security": "Mandatory security screening cannot be skipped.",
+        "validity": "Visits may be spread across three days. Topkapi is closed Tuesdays.",
         "notes": [
-          "The target activity covers the Blue Mosque, Hagia Sophia, and Basilica Cistern.",
-          "Confirm included entry tickets, guide language, duration, and group size at checkout.",
-          "This URL must not be described as a generic small-group Old City tour without the three named sights."
+          "Smartphone audio guides in up to 10 languages; independent visits inside.",
+          "The overview inconsistently mentions a host at every venue; the detailed How it works section specifies direct QR entry for Hagia Sophia and Basilica Cistern. Follow the final confirmation.",
+          "Harem inclusion is not independently confirmed; verify the selected option."
         ]
-      }
+      },
+      "priceReference": {
+        "amount": 122.55,
+        "currency": "EUR",
+        "condition": "Starting price observed on the owner-supplied referral URL on 9 September 2026. Final date, option and total must be confirmed before payment."
+      },
+      "expectedProductPath": "/shop/istanbul-vip-combo-ticket"
     },
-    "topkapi-hagia-small-group": {
-      "shortUrl": "https://gyg.me/IDOlO7yX",
-      "destinationUrl": "https://www.getyourguide.com/istanbul-l56/istanbulsmall-group-topkapi-and-hagia-sophia-tour-t176826/?partner_id=UYM3DXX&referral_redirect=1",
-      "expectedActivityId": "176826",
-      "name": "Istanbul: Small-Group Topkapi and Hagia Sophia Tour",
-      "checkedAt": "2026-08-07",
+    "iwc-saver-combo": {
+      "provider": "istanbul-welcome-card",
+      "destinationUrl": "https://istanbulwelcomecard.com/shop/istanbul-saver-combo-ticket?ref=iti5",
+      "name": "Saver Combo: Three Sights, Cruise & eSIM",
+      "checkedAt": "2026-09-09",
+      "analyticsEvent": "ticket_click_saver_combo",
       "terms": {
-        "cancellation": "Confirm the selected option's cancellation terms at checkout.",
-        "fulfillment": "Meet the live guide at the meeting point shown for the selected option.",
-        "security": "Any pre-reserved ticket benefit does not remove mandatory security controls.",
-        "validity": "Guided tour on the selected date and start time.",
+        "cancellation": "Free cancellation up to 48 hours before the visit according to the product page; confirm final booking terms.",
+        "fulfillment": "Hagia Sophia and Basilica Cistern entry QR codes by email; Topkapi requires a host meeting. Cruise pier and eSIM instructions arrive by email.",
+        "security": "Mandatory security screening cannot be skipped.",
+        "validity": "Visits may be spread across three days. Topkapi is closed Tuesdays.",
         "notes": [
-          "The destination title names Topkapi Palace and Hagia Sophia.",
-          "Do not claim Basilica Cistern inclusion unless the selected live option explicitly includes it.",
-          "Confirm included tickets, Harem access, duration, language, and group size at checkout."
+          "Hagia Sophia, Basilica Cistern and Topkapi Palace, plus a 90-minute Bosphorus cruise and 3GB eSIM.",
+          "Smartphone audio guides in up to 10 languages; not a full-day live guided tour.",
+          "Confirm eSIM device compatibility, cruise departure and Harem inclusion before booking."
         ]
-      }
+      },
+      "priceReference": {
+        "amount": 128.25,
+        "currency": "EUR",
+        "condition": "Starting price observed on the owner-supplied referral URL on 9 September 2026. Final date, option and total must be confirmed before payment."
+      },
+      "expectedProductPath": "/shop/istanbul-saver-combo-ticket"
+    },
+    "iwc-bus-boat-combo": {
+      "provider": "istanbul-welcome-card",
+      "destinationUrl": "https://istanbulwelcomecard.com/shop/hop-on-hop-off-bus-and-boat-tour-in-istanbul?ref=iti5",
+      "name": "Two-Day Hop-on Hop-off Bus & Bosphorus Cruise",
+      "checkedAt": "2026-09-09",
+      "analyticsEvent": "ticket_click_bus_boat_combo",
+      "terms": {
+        "cancellation": "Free cancellation up to 48 hours before the visit according to the product page; confirm final booking terms.",
+        "fulfillment": "Email confirmation contains the Sultanahmet bus meeting point and Old City cruise pier.",
+        "security": "Mandatory security screening cannot be skipped.",
+        "validity": "Two-day package: bus on day one, cruise on day two.",
+        "notes": [
+          "Hop-on hop-off bus route and 90-minute cruise; attraction entry is excluded.",
+          "Catalogue displayed EUR 37.91 but product page displayed EUR 48.36 on 2026-09-09. No reliable starting price is published.",
+          "Recorded commentary and smartphone cruise audio; no live guide."
+        ]
+      },
+      "expectedProductPath": "/shop/hop-on-hop-off-bus-and-boat-tour-in-istanbul"
+    },
+    "iwc-dolmabahce-combo": {
+      "provider": "istanbul-welcome-card",
+      "destinationUrl": "https://istanbulwelcomecard.com/shop/dolmabahce-palace-and-bosphorus-cruise?ref=iti5",
+      "name": "Dolmabahce Palace & Bosphorus Cruise",
+      "checkedAt": "2026-09-09",
+      "analyticsEvent": "ticket_click_dolmabahce_combo",
+      "terms": {
+        "cancellation": "Free cancellation up to 24 hours before the visit according to the product page; confirm final booking terms.",
+        "fulfillment": "Show the palace QR at the entrance; show cruise confirmation at the designated pier. Palace audio device requires an ID deposit.",
+        "security": "Mandatory security screening cannot be skipped.",
+        "validity": "Choose an available date; Dolmabahce Palace is closed Mondays.",
+        "notes": [
+          "Palace admission includes Selamlik, Harem and Painting Museum; Clock Museum excluded.",
+          "90-minute cruise; official palace audio and five-language smartphone cruise audio.",
+          "No live guide. Follow the emailed pier location and departure time."
+        ]
+      },
+      "priceReference": {
+        "amount": 47.5,
+        "currency": "EUR",
+        "condition": "Starting price observed on the owner-supplied referral URL on 9 September 2026. Final date, option and total must be confirmed before payment."
+      },
+      "expectedProductPath": "/shop/dolmabahce-palace-and-bosphorus-cruise"
+    },
+    "iwc-basilica-email-qr": {
+      "provider": "istanbul-welcome-card",
+      "destinationUrl": "https://istanbulwelcomecard.com/shop/basilica-cistern-ticket?ref=iti5",
+      "name": "Basilica Cistern Email QR & Audio Guide",
+      "checkedAt": "2026-09-09",
+      "analyticsEvent": "ticket_click_basilica_qr",
+      "terms": {
+        "cancellation": "Free cancellation up to 24 hours before the visit according to the product page; confirm final booking terms.",
+        "fulfillment": "Entry QR and audio-guide instructions by email; no pickup or paper ticket required.",
+        "security": "Mandatory security screening cannot be skipped.",
+        "validity": "Listing describes flexible visit day. Confirm the applicable session and final ticket validity.",
+        "notes": [
+          "Seven-language smartphone audio; self-guided, no live person.",
+          "Download the audio guide before arrival and bring headphones."
+        ]
+      },
+      "priceReference": {
+        "amount": 47.41,
+        "currency": "EUR",
+        "condition": "Starting price observed on the owner-supplied referral URL on 9 September 2026. Final date, option and total must be confirmed before payment."
+      },
+      "expectedProductPath": "/shop/basilica-cistern-ticket"
     }
   }
 }
