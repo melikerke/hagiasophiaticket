@@ -125,3 +125,7 @@ URL or noindex migration while these changes are being assessed.
 - The photo guide uses existing local assets and makes no claim that they depict current entrance arrangements. Three owner-provided Shutterstock downloads were integrated on 9 September: the planner hero, cistern photo and Medusa detail. Exact current entrance/kiosk photographs are still unavailable; no unlicensed Shutterstock preview is deployed.
 - `scripts/build-visit-card.py` regenerates `output/pdf/hagia-sophia-visit-card.pdf` with ReportLab. The general pocket PDF is distinct from the browser's personalized print view. Inspect a rendered PDF after changing its content or layout.
 - Validation: `node scripts/validate-site.mjs` and `node --test scripts/*.test.mjs`. Browser QA covers 320/390/768/1440 widths, keyboard access, applied preference sharing, JS-disabled fallback, map links, print layout and download. Source restrictions are linked from the page.
+
+## 9 September 2026: photo orientation map
+
+The planner’s arrival map now uses four existing landmark photographs as native linked markers, retaining the five `map-*` fragment IDs. The Ayasofya arrival card appears first; the museum marker stays conditional on kiosk-based tickets. The map remains a schematic, not surveyed navigation, and explicitly distinguishes landmark photos from current entrance doors. No external map scripts or new photo downloads were added. Marker navigation works with a keyboard and with JavaScript disabled.
