@@ -1,5 +1,27 @@
 # Search recovery maintenance
 
+## Homepage review, September 9, 2026
+
+The homepage now separates the date of a complete offer review (August 7) from
+current page edits. Historical review information is available under the ticket
+comparison. The August 7 review badge and unverified reseller starting prices
+were removed from the main page; `offers.json` review dates were not advanced.
+The provider listing was readable through web retrieval, but date-specific
+options could not be checked in the browser. No new price or complete offer
+verification is claimed.
+
+The first screen offers both provider availability and an on-page comparison.
+Repeated guide cards were consolidated into the existing visitor section; distinct
+guide links remain available. Ticket images and the mobile hero were shortened.
+
+The DOSIM `142675` PDF is for the separate History and Experience Museum, not the
+mosque gallery. Nineteen gallery-tariff citations now point to
+https://agency.demmuseums.com/Faq/Index, which identifies the mosque visitor-area
+tariff and child eligibility. The English gallery-price guide was revised to
+separate the two attractions and remove its stale reseller Offer price. The
+operator FAQ's wholesale agency conditions must not be applied to retail
+reseller tickets. Other page dates remain unchanged for this citation correction.
+
 ## Consolidated URLs
 
 `recovery-index-policy.json` is the source of truth. The September 9, 2026

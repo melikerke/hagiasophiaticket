@@ -335,7 +335,7 @@ for (const htmlFile of htmlFiles) {
   }
 
   if (/https?:\/\/dosim\.ktb\.gov\.tr\/Eklenti\/127458(?:%2c|,)ayasofyapdf\.pdf(?:\?0=)?/i.test(source)) {
-    addError(`${fileLabel}: contains a retired 127458 official tariff PDF URL; use the current DOSIM tariff link.`);
+    addError(`${fileLabel}: contains a retired 127458 tariff PDF URL; use DEM Museums' visitor-area FAQ for the mosque-gallery tariff.`);
   }
 
   const directUrls = new Set(source.match(/https:\/\/(?:www\.)?getyourguide\.com\/[^"'<>\\\s]+/gi) || []);

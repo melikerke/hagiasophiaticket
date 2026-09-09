@@ -10,7 +10,7 @@
 - Product names, inclusions, fulfillment instructions, cancellation terms, visible prices, and structured data must describe the same selected activity option.
 - Do not describe ticket-line access as skipping mandatory security.
 - Do not publish a crossed-out comparison price, `InStock`, cancellation promise, language count, guide type, Harem inclusion, or ticket-delivery claim without a dated source check.
-- The current official tariff link is `https://dosim.ktb.gov.tr/Eklenti/142675%2Cayasofyabilet-cretlerisonnpdf.pdf?0=`.
+- For the mosque visitor-gallery tariff, use `https://agency.demmuseums.com/Faq/Index`. The DOSIM `142675` PDF covers the separate Hagia Sophia History and Experience Museum; it must not be cited as the mosque-gallery tariff.
 - Do not restore either retired `127458` tariff URL form (`127458,ayasofyapdf.pdf` or `127458%2Cayasofyapdf.pdf?0=`); both now return 404.
 
 ## Local validation

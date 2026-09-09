@@ -2812,7 +2812,7 @@
 }
 
 .home-v2 .v2-ticket-media img {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
 }
 
 .home-v2 .v2-ticket-card-body {
@@ -3356,7 +3356,7 @@
 
 @media (max-width: 350px) {
   .home-v2 .v2-hero-actions .ghost {
-    display: none;
+    display: inline-flex;
   }
 
   .home-v2 .v2-hero-trust {
@@ -3675,4 +3675,33 @@
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
+}
+
+/* Booking clarity: keep the review history accessible without making it a trust badge. */
+.home-v2 .v2-review-details {
+  margin-top: 12px;
+  padding: 14px 18px;
+  border: 1px solid var(--v2-line);
+  border-radius: 12px;
+  background: var(--v2-wash);
+  color: var(--v2-muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.home-v2 .v2-review-details summary {
+  min-height: 44px;
+  display: list-item;
+  align-content: center;
+  cursor: pointer;
+  color: var(--v2-olive-dark);
+  font-weight: 700;
+}
+.home-v2 .v2-review-details p { margin: 8px 0 0; }
+.home-v2 .buybar .p { font-size: 16px; line-height: 1.25; }
+@media (max-width: 700px) {
+  .home-v2 .v2-hero-collage { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .home-v2 .v2-hero-photo-main { grid-column: auto; grid-row: auto; }
+  .home-v2 .v2-hero-photo-main img { height: auto; aspect-ratio: 16 / 9; }
+  .home-v2 .v2-hero-photo-detail { display: none; }
+  .home-v2 .v2-section { padding-block: 48px; }
 }
